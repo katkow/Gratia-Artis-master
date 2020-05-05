@@ -13,7 +13,7 @@ Opis istniejących funkcjonalności:
       - połączenie (poprzez API) z platformą uploadcare.com, możliwość przesłania zdjęć i przechowywania ich w chmurze 
  Narzędzia i technologie:
     -visual studio code
-    -adobe xd 
+    -adobe XD 
     -ionic
     -firebase
     -uploadcare
