@@ -11,4 +11,13 @@ Opis istniejących funkcjonalności:
   - tabs:
       - utworzenie podstron: feed, profil oraz wstaw
       - połączenie (poprzez API) z platformą uploadcare.com, możliwość przesłania zdjęć i przechowywania ich w chmurze 
+ Narzędzia i technologie:
+    -visual studio code
+    -adobe XD 
+    -ionic
+    -firebase
+    -uploadcare
+    -biblioteka AngularFire
+    -moduł @angular/http
+    
      
