@@ -1,5 +1,51 @@
+<ion-toolbar color="pink">
+  <ion-buttons slot="start">
+    <ion-menu-button autoHide="false"></ion-menu-button>    
+  </ion-buttons>  
+
+  <ion-buttons slot="secondary">
+    <ion-button (click)="clickedSearch()">
+      <ion-icon slot="icon-only" name="search"></ion-icon>
+    </ion-button>
+    <ion-button>
+      <ion-icon slot="icon-only" name="person-sharp"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="primary">
+    <ion-button>
+      <ion-icon slot="icon-only" name="cart-sharp"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-menu side="start" menuId="menu" contentId="main" class="my-menu">
+  <ion-content color="pink">
+    <ion-segment><br></ion-segment>
+    <ion-segment><br></ion-segment>
+    <ion-segment>
+      <ion-img  class="ion-text-center" style="width: 70px;" src="../../assets/LOGO.png" ></ion-img> <!-- logo w jakimkolwiek telefonie ucieka w prawo -->
+    </ion-segment>
+    <ion-segment><br></ion-segment>
+    <ion-button href='/tabs/feed' expand="full" fill="clear" >
+      PRACE
+    </ion-button>
+    <ion-button (click)="openInspiration()" expand="full" fill="clear" >
+      INSPIRACJE
+    </ion-button>
+    <ion-button (click)="openFrames()" expand="full" fill="clear" >
+      RAMY
+    </ion-button>
+    <ion-button (click)="openContact()" expand="full" fill="clear" >
+      KONTAKT
+    </ion-button>
+    <ion-button (click)="openFAQ()" expand="full" fill="clear" >
+      FAQ
+    </ion-button>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
+
 <ion-tabs #tabs>
-  <ion-tab-bar slot="bottom">
+  <ion-tab-bar slot="bottom"  color="pink">
     <ion-tab-button tab="feed">
       <ion-icon name="send"></ion-icon>
       <ion-label>Feed</ion-label>

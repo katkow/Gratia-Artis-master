@@ -6,8 +6,8 @@
 
 <ion-content padding>
   <div class="camera"></div>
-
+<ion-segment color="pink">
   <input type="file" (change)="fileChanged($event)" />
-
+</ion-segment>
   <img *ngIf="imageURL" src="https://ucarecdn.com/{{ imageURL }}/" />
 </ion-content>

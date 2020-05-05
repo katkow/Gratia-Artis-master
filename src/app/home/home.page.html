@@ -32,7 +32,7 @@
         <ion-img  class="ion-text-center" style="width: 70px;" src="../../assets/LOGO.png" ></ion-img> <!-- logo w jakimkolwiek telefonie ucieka w prawo -->
       </ion-segment>
       <ion-segment><br></ion-segment>
-      <ion-button (click)="openWorks()" expand="full" fill="clear" >
+      <ion-button href='/tabs/feed' expand="full" fill="clear" >
         PRACE
       </ion-button>
       <ion-button (click)="openInspiration()" expand="full" fill="clear" >
@@ -56,33 +56,53 @@
 
 
 <ion-footer>
+  <ion-segment>
   <!-- tutaj binding danych -->
-  <ion-row class="ion-align-items-center">
+  <ion-row  class="row responsive-lg">
     <ion-col>
-      <h3>GALERIA</h3> <br>
-      ULICA 00, <br>
-      80-000 MIASTO<br>
-      <br>
-      GODZINY OTWARCIA<br>
-      WT-PT 12:00-19:00<br>
-      SOB 12:00-15:00
+      <ion-row class="row responsive-lg"> 
+        <div class="ion-text-center">
+          <h3>GALERIA</h3>
+          <ion-row>
+            ULICA 00, <br>
+            80-000 MIASTO<br>
+            <br>
+            GODZINY OTWARCIA<br>
+            WT-PT 12:00-19:00<br>
+            SOB 12:00-15:00
+          </ion-row>
+        </div>
+      </ion-row>
     </ion-col>
     <ion-col>
-      <h3>KONTAKT</h3><br>
-      JAN KOWALSKI <br>
-      MAIL@MAIL.COM.PL<br>
-      <br>
-      ANNA NOWAK<br>
-      BUIRO@MAIL.COM.PL
+      <ion-row class="row responsive-lg">
+        <div class="ion-text-center">
+          <h3>KONTAKT</h3>
+          <ion-row>
+            JAN KOWALSKI <br>
+            JANKOWALSKI@GALERIA.COM.PL<br>
+            <br>
+            ANNA NOWAK<br>
+            BIURO@GALERIA.COM.PL<br>
+          </ion-row>
+        </div>
+    </ion-row>
     </ion-col>
     <ion-col>
-      <h3>MEDIA</h3><br>
-      BIURO@MAIL.COM.PL<br>
-      <br>
-      DLA PRASY<br>
-      <br>
-      REGULAMIN
+      <ion-row class="row responsive-lg">
+        <div class="ion-text-center">
+          <h3>MEDIA</h3>
+          <ion-row>
+            BIURO@GALERIA.COM.PL <br>
+            <br>
+            DLA PRASY<br>
+            <BR>
+            REGULAMIN<br>
+          </ion-row>
+        </div>
+    </ion-row>
     </ion-col>
   </ion-row>
+</ion-segment>
 </ion-footer>
 </ion-content>
