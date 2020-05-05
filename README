@@ -1,0 +1,14 @@
+Strona stworzona z myślą o młodych artystach - ma na celu umożliwienie im sprzedaży swoich prac. 
+Autorzy: Katarzyna Kowalska, Joanna Cieszyńska
+Opis istniejących funkcjonalności: 
+  - Utworzenie strony domowej i zarysu interfejsu użytkownika
+  - połączenie projektu z platformą firebase(przechowywanie listy zarejestrowanych użytkowników)
+  - Rejestracja: 
+      - weryfikacja zgodności hasła i potwierdzenia, niedopuszczanie słabych haseł
+      - pomyślna rejestracja pozwala przejść na stronę 'tabs' 
+  - Logowanie:
+      - jeśli użytkownik nie został wcześniej zarejestrowany w logu pojawi się stosowna informacja
+  - tabs:
+      - utworzenie podstron: feed, profil oraz wstaw
+      - połączenie (poprzez API) z platformą uploadcare.com, możliwość przesłania zdjęć i przechowywania ich w chmurze 
+     
