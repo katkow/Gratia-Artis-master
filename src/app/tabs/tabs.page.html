@@ -2,12 +2,11 @@
   <ion-buttons slot="start">
     <ion-menu-button autoHide="false"></ion-menu-button>    
   </ion-buttons>  
-
   <ion-buttons slot="secondary">
     <ion-button (click)="clickedSearch()">
       <ion-icon slot="icon-only" name="search"></ion-icon>
     </ion-button>
-    <ion-button>
+    <ion-button href='/login'>
       <ion-icon slot="icon-only" name="person-sharp"></ion-icon>
     </ion-button>
   </ion-buttons>
@@ -17,7 +16,8 @@
     </ion-button>
   </ion-buttons>
 </ion-toolbar>
-<ion-menu side="start" menuId="menu" contentId="main" class="my-menu">
+
+<ion-menu side="start" menuId="menu" contentId="main">
   <ion-content color="pink">
     <ion-segment><br></ion-segment>
     <ion-segment><br></ion-segment>
@@ -47,19 +47,18 @@
 <ion-tabs #tabs>
   <ion-tab-bar slot="bottom"  color="pink">
     <ion-tab-button tab="feed">
-      <ion-icon name="send"></ion-icon>
-      <ion-label>Feed</ion-label>
+      <ion-icon name="layers-sharp"></ion-icon>
+      <ion-label>Prace</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="uploader">
-      <ion-icon name="send"></ion-icon>
+      <ion-icon name="cloud-upload-sharp"></ion-icon>
       <ion-label>Wstaw</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="profile">
-      <ion-icon name="send"></ion-icon>
+      <ion-icon name="person-circle-sharp"></ion-icon>
       <ion-label>Profil</ion-label>
     </ion-tab-button>
-
   </ion-tab-bar>
 </ion-tabs>

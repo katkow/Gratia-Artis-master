@@ -7,11 +7,8 @@
       <ion-button (click)="clickedSearch()">
         <ion-icon slot="icon-only" name="search"></ion-icon>
       </ion-button>
-       <ion-button href='/login'>
-        logowanie
-      </ion-button>
-      <ion-button href='/registration'>
-        rejestracja
+      <ion-button href='/login'>
+        <ion-icon slot="icon-only" name="person-sharp"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="primary">
@@ -21,7 +18,7 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-menu side="start" menuId="menu" contentId="main" class="my-menu">
+<ion-menu side="start" menuId="menu" contentId="main">
   <ion-content color="pink">
     <ion-segment><br></ion-segment>
     <ion-segment><br></ion-segment>
@@ -48,22 +45,35 @@
 </ion-menu>
 <ion-router-outlet id="main"></ion-router-outlet>
 
-<ion-content padding color="pink">
-  <ion-segment>
-  <ion-list >
-
-    <ion-item color="pink">
-      <ion-label position="floating">Login:</ion-label>
-      <ion-input type="text" [(ngModel)]="username"></ion-input>
-    </ion-item>
-
-    <ion-item color="pink">
-      <ion-label position="floating">Hasło:</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
-
-  </ion-list>
-</ion-segment>
-  <ion-button fill="solid" color="dark" (click)="login()">Zaloguj</ion-button>
-
+<ion-content color="pink" padding class="ion-align-items-center">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <ion-grid>
+    <ion-row color="pink">
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <div text-center>
+         <h3>Logowanie</h3> 
+        </div>
+        <div padding>
+        <ion-item>
+          <ion-label position="floating" >Login:</ion-label>
+          <ion-input type="text" [(ngModel)]="username" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Hasło:</ion-label>
+          <ion-input type="password" [(ngModel)]="password" required></ion-input>
+        </ion-item>
+      </div>
+      <div padding>
+        <ion-button  fill="solid" color="dark"  expand="full" (click)="login()">Zaloguj</ion-button>
+        <ion-text >Nie masz jeszcze konta? </ion-text>
+        <a href="/registration" class="arial">Zarejestruj się</a>
+      </div>
+      </ion-col>
+    </ion-row>
+</ion-grid>
 </ion-content>
+

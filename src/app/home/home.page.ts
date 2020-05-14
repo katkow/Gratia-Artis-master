@@ -16,6 +16,11 @@ export class HomePage {
     this.menu.enable(true, 'menu');
     this.menu.open('custom');
   }
+  
+  openCart() {
+    this.menu.open('cart');
+  }
+  
 
 }
 

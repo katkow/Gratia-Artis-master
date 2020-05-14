@@ -8,28 +8,24 @@
       <ion-button (click)="clickedSearch()">
         <ion-icon slot="icon-only" name="search"></ion-icon>
       </ion-button>
-       <ion-button href='/login'>
-        logowanie
+       <ion-button href='/login' >
+        <ion-icon slot="icon-only" name="person-sharp"></ion-icon>
       </ion-button>
-      <ion-button href='/registration'>
-        rejestracja
-      </ion-button>
-    </ion-buttons>
-    <ion-buttons slot="primary">
-      <ion-button>
-        <ion-icon slot="icon-only" name="cart-sharp"></ion-icon>
+      <ion-button onclick="openCart()">
+        <ion-icon slot="icon-only" name="cart-sharp">
+        </ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" color="pink">
-  <ion-menu side="start" menuId="menu" contentId="main" class="my-menu">
+  <ion-menu side="start" menuId="menu" contentId="main">
     <ion-content color="pink">
       <ion-segment><br></ion-segment>
       <ion-segment><br></ion-segment>
       <ion-segment>
-        <ion-img  class="ion-text-center" style="width: 70px;" src="../../assets/LOGO.png" ></ion-img> <!-- logo w jakimkolwiek telefonie ucieka w prawo -->
+        <ion-img  class="ion-text-center" style="width: 70px;" src="../../assets/LOGO.png" href='/home'></ion-img>
       </ion-segment>
       <ion-segment><br></ion-segment>
       <ion-button href='/tabs/feed' expand="full" fill="clear" >
@@ -49,60 +45,11 @@
       </ion-button>
     </ion-content>
   </ion-menu>
+ 
 <ion-router-outlet id="main"></ion-router-outlet>
 
-
 <ion-img  src="../../assets/Background.png" ></ion-img>
-
-
-<ion-footer>
-  <ion-segment>
-  <!-- tutaj binding danych -->
-  <ion-row  class="row responsive-lg">
-    <ion-col>
-      <ion-row class="row responsive-lg"> 
-        <div class="ion-text-center">
-          <h3>GALERIA</h3>
-          <ion-row>
-            ULICA 00, <br>
-            80-000 MIASTO<br>
-            <br>
-            GODZINY OTWARCIA<br>
-            WT-PT 12:00-19:00<br>
-            SOB 12:00-15:00
-          </ion-row>
-        </div>
-      </ion-row>
-    </ion-col>
-    <ion-col>
-      <ion-row class="row responsive-lg">
-        <div class="ion-text-center">
-          <h3>KONTAKT</h3>
-          <ion-row>
-            JAN KOWALSKI <br>
-            JANKOWALSKI@GALERIA.COM.PL<br>
-            <br>
-            ANNA NOWAK<br>
-            BIURO@GALERIA.COM.PL<br>
-          </ion-row>
-        </div>
-    </ion-row>
-    </ion-col>
-    <ion-col>
-      <ion-row class="row responsive-lg">
-        <div class="ion-text-center">
-          <h3>MEDIA</h3>
-          <ion-row>
-            BIURO@GALERIA.COM.PL <br>
-            <br>
-            DLA PRASY<br>
-            <BR>
-            REGULAMIN<br>
-          </ion-row>
-        </div>
-    </ion-row>
-    </ion-col>
-  </ion-row>
-</ion-segment>
-</ion-footer>
+<ion-button href='/tabs/feed' fill="solid" color="dark"  expand="block" size="medium" padding="30">
+  <ion-label>zobacz prace artystów</ion-label>
+</ion-button>
 </ion-content>
