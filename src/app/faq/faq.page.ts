@@ -17,7 +17,7 @@ export class FaqPage implements OnInit {
     "W jaki sposób Gratia Artis zabezpiecza płatności kartą?",
     "Sprzedaż krok po kroku",
     "Kto płaci za wysyłkę?",
-    "W jakim terminie należy wysłać przedmior?",
+    "W jakim terminie należy wysłać przedmiot?",
     "Jak wysłać przedmiot?"
   ];
   answers: Array<string> = [
@@ -42,15 +42,14 @@ export class FaqPage implements OnInit {
     this.menu.open('cart');
   }
 
-  async answerQuestion(id: string) {
+
+  async answerQuestion(id: string, m: string) {
+    for(let answer of this.answers){
+      m = answer;
+    }
     const alert = await this.alertController.create({
       header: id,
-      inputs: [
-        {
-          name: 'odpowiedz' + id,
-          value: 'zdecydowanie nie',
-          checked: false
-        }],
+      message: m, 
         buttons: [
              {
             text: 'OK',
@@ -59,8 +58,9 @@ export class FaqPage implements OnInit {
             }
           }],
           cssClass: 'alert'
-    });
-
+        });  
+        
     await alert.present();
+    
   }
 }

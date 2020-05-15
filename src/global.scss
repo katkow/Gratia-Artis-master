@@ -66,11 +66,22 @@ ion-item{
 .tabs-inner{
   --background: #E8C9B7;
 }
+
 ion-content {
   text-align: center;
 }
 
-.alert.mono {
+.alert-title {
   font-family: 'DM Mono', monospace;
 }
 
+.alert-message {
+  font-family: 'DM Mono', monospace;
+}
+
+.alert-input {
+  font-family: 'DM Mono', monospace;
+}
+.alert-button-inner {
+  color: black;
+}
