@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, IonSearchbar } from '@ionic/angular';
 
 
 
@@ -10,7 +10,8 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private menu: MenuController) {}
+  public isSearchbarOpened = false;
+  constructor(public menu: MenuController) {}
 
   openMenu() {
     this.menu.enable(true, 'menu');
@@ -20,7 +21,11 @@ export class HomePage {
   openCart() {
     this.menu.open('cart');
   }
-  
+
+  onSearch(event) {
+    console.log(event.target.value);
+
+  }
 
 }
 
