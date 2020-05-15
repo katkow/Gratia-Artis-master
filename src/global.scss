@@ -44,13 +44,14 @@ font-display:auto;font-style:normal;font-weight:400;
 .tk-flegrei { font-family: "flegrei",sans-serif; }
 .mono {font-family: 'DM Mono', monospace;}
 *{
-    font-family: Hobo-std;
+    font-family: hobo-std;
 }
 .arial {font-family: 'Arial', sans-serif;}
 
 
 .button {
       --color: black;
+      
 }
 a {
     background-color: transparent;
@@ -67,5 +68,9 @@ ion-item{
 }
 ion-content {
   text-align: center;
+}
+
+.alert.mono {
+  font-family: 'DM Mono', monospace;
 }
 

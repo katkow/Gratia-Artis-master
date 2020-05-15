@@ -7,18 +7,12 @@
 <ion-content padding>
   <!-- <div class="camera">sadfghjkl</div> -->
   <!-- <ion-card> -->
-    <input type="file" class="custom-file-upload" (change)="fileChanged($event)" />
-     <img *ngIf="imageURL" src="https://ucarecdn.com/{{ imageURL }}/" />
-
-     <ion-button (click)="openFiles()">
-      <ion-icon></ion-icon>
-      <ion-label>Upload</ion-label>
-    </ion-button>
-
-     <ion-button (change)="fileChanged($event)">
-       <ion-icon></ion-icon>
-       <ion-label>Upload</ion-label>
-     </ion-button>
+    <ion-content padding>
+      <div class="camera"></div>
+    <ion-segment color="pink">
+      <input type="file" (change)="fileChanged($event)" />
+    </ion-segment>
+      <img *ngIf="imageURL" src="https://ucarecdn.com/{{ imageURL }}/" />
   <!-- <ion-card-content>
       <ion-button color="medium" size="large" (click)="cropUpload()">
       <ion-icon slot="icon-only" name="camera"></ion-icon>

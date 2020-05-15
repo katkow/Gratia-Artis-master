@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuController, IonSearchbar } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 
 
