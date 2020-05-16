@@ -68,22 +68,22 @@
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
 
-<ion-img data-sizes="auto" data-parent-fit="cover" alt style="object-position: center center; transform: translate3d(0px, 0px, 0px);" src="../../assets/Background.png"></ion-img>
-<ion-button href='/tabs/feed' fill="solid" color="dark"  expand="block" size="medium" padding="30">
-  <ion-label>zobacz prace artystów</ion-label>
-</ion-button>
-
-<br>
-<br>
-<div>
-  <ion-text text-center >
-    <h1 class="mono">Dzień dobry!</h1>
-    <p class="mono">
-    Jesteśmy platformą dla młodych artystów, którzy chcą dzielić się swoją sztuką ze światem. <br>
-    Umożliwiamy sprzedaż i prezentacje swoich prac. <br>
-    </p> 
-</ion-text>
+<ion-content color="pink">
+<div paddig >
+  <ion-row> 
+    <ion-col align-self-center size-md="6" size-lg="5" size-xs="12" >
+  <ion-item>
+    <ion-label>Temat</ion-label>
+    <ion-input  [(ngModel)]="subject" type="text" placeholder="Podaj temat wiadomości" class="mono"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Treść</ion-label>
+    <ion-textarea  [(ngModel)]="message" type="text" rows="6" cols="20" placeholder="Podaj treść wiadomości" class="mono"></ion-textarea>
+  </ion-item>
+  <ion-button fill="solid" color="dark"  expand="full" (click)="sendEmail()">
+    <ion-icon name="send-sharp"></ion-icon>
+  </ion-button>
+</ion-col>
+</ion-row>
 </div>
-<br>
-<br>
 </ion-content>
