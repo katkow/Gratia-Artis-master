@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app'
 import { MenuController } from '@ionic/angular';
-
+import { Router } from '@angular/router';
+import { UserService } from './../services/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,7 +14,7 @@ export class LoginPage implements OnInit {
   username: string = ""
   password: string = ""
 
-  constructor(public afAuth: AngularFireAuth, public menu: MenuController) { }
+  constructor(public afAuth: AngularFireAuth, public menu: MenuController, public user: UserService, public router: Router) { }
 
   ngOnInit() {
   }
@@ -23,6 +24,13 @@ export class LoginPage implements OnInit {
     try {
       //sth to think about
       const res = await this.afAuth.signInWithEmailAndPassword(username + '@gmail.com', password)
+      if(res.user){
+        this.user.setUser({
+          username,
+          uid: res.user.uid
+        })
+        this.router.navigate(['/tabs'])
+      }
 
     } catch(err) {
       console.dir(err)
@@ -33,6 +41,7 @@ export class LoginPage implements OnInit {
 
   
   }
+
   openCart() {
     this.menu.open('cart');
   }

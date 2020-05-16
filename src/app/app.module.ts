@@ -13,6 +13,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HttpModule } from '@angular/http'
 import {EmailComposer} from '@ionic-native/email-composer/ngx'
+import { UserService } from './services/user.service';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -22,13 +24,15 @@ import {EmailComposer} from '@ionic-native/email-composer/ngx'
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
-    HttpModule
+    HttpModule,
+    AngularFirestoreModule,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    EmailComposer
+    EmailComposer,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
