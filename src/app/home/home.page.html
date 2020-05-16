@@ -1,88 +1,108 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="pink">
     <ion-buttons slot="start">
-      <ion-menu-button autoHide="true"></ion-menu-button>    
+      <ion-menu-button autoHide="false"></ion-menu-button>    
     </ion-buttons>  
-    <ion-searchbar mode="ios" cancel-button-icon="arrow-back-sharp" *ngIf="isSearchbarOpened" showCancelButton="true" (search)="onSearch($event)" (ionCancel)="isSearchbarOpened=false"></ion-searchbar>
-    <ion-buttons slot="end">
-      <ion-button *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
+
+    <ion-buttons slot="secondary">
+      <ion-button (click)="clickedSearch()">
         <ion-icon slot="icon-only" name="search"></ion-icon>
       </ion-button>
-       <ion-button href='/login' >
-        <ion-icon slot="icon-only" name="person-sharp"></ion-icon>
+       <ion-button href='/login'>
+        logowanie
       </ion-button>
-      <ion-button (click)="openCart()">
-        <ion-icon slot="icon-only" name="cart-sharp">
-        </ion-icon>
+      <ion-button href='/registration'>
+        rejestracja
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="cart-sharp"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" color="pink">
-  <ion-menu side="start" menuId="menu" contentId="main">
+  <ion-menu side="start" menuId="menu" contentId="main" class="my-menu">
     <ion-content color="pink">
       <ion-segment><br></ion-segment>
       <ion-segment><br></ion-segment>
       <ion-segment>
-        <ion-img  class="ion-text-center" style="width: 70px;" src="../../assets/LOGO.png" href='/home'></ion-img>
+        <ion-img  class="ion-text-center" style="width: 70px;" src="../../assets/LOGO.png" ></ion-img> <!-- logo w jakimkolwiek telefonie ucieka w prawo -->
       </ion-segment>
       <ion-segment><br></ion-segment>
-      <ion-button class="tk-hobo-std" href='/tabs/feed' expand="full" fill="clear" >
+      <ion-button href='/tabs/feed' expand="full" fill="clear" >
         PRACE
       </ion-button>
-      <ion-button class="tk-hobo-std" (click)="openNew()" expand="full" fill="clear" >
-        NAJNOWSZE
+      <ion-button (click)="openInspiration()" expand="full" fill="clear" >
+        INSPIRACJE
       </ion-button>
-      <ion-button class="tk-hobo-std" (click)="openBestsellers()" expand="full" fill="clear" >
-        BESTSELLERS
+      <ion-button (click)="openFrames()" expand="full" fill="clear" >
+        RAMY
       </ion-button>
-      <ion-button class="tk-hobo-std" (click)="openPaintings()" expand="full" fill="clear" >
-        OBRAZY
-      </ion-button>
-      <ion-button class="tk-hobo-std" (click)="openPosters()" expand="full" fill="clear" >
-        PLAKATY
-      </ion-button>
-      <ion-button class="tk-hobo-std" (click)="openPeople()" expand="full" fill="clear" >
-        TWÓRCY
-      </ion-button>
-      <ion-button class="tk-hobo-std" (click)="openContact()" expand="full" fill="clear" >
+      <ion-button (click)="openContact()" expand="full" fill="clear" >
         KONTAKT
       </ion-button>
-      <ion-button class="tk-hobo-std" href='/faq' expand="full" fill="clear" >
+      <ion-button (click)="openFAQ()" expand="full" fill="clear" >
         FAQ
       </ion-button>
     </ion-content>
   </ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
 
-  <ion-menu side="end" menuId="cart" contentId="main">
-    <ion-content color="pink" class="tk-hobo-std">
-      <ion-segment><br></ion-segment>
-      <ion-segment><br></ion-segment>
-      <ion-segment>
-        <ion-img style="width: 70px;" src="../../assets/LOGO.png" href='/home'></ion-img>
-      </ion-segment>
-      <ion-segment><br></ion-segment>
-      Koszyk jest pusty 
-    </ion-content>
-  </ion-menu>
-  <ion-router-outlet id="main"></ion-router-outlet>
-<ion-img data-sizes="auto" data-parent-fit="cover" alt style="object-position: center center; transform: translate3d(0px, 0px, 0px);" src="../../assets/Background.png"></ion-img>
-<ion-button href='/tabs/feed' fill="solid" color="dark"  expand="block" size="medium" padding="30">
-  <ion-label>zobacz prace artystów</ion-label>
-</ion-button>
 
-<br>
-<br>
-<div>
-  <ion-text text-center >
-    <h1 class="mono">Dzień dobry!</h1>
-    <p class="mono">
-    Jesteśmy platformą dla młodych artystów, którzy chcą dzielić się swoją sztuką ze światem. <br>
-    Umożliwiamy sprzedaż i prezentacje swoich prac. <br>
-    </p> 
-</ion-text>
-</div>
-<br>
-<br>
+<ion-img  src="../../assets/Background.png" ></ion-img>
+
+
+<ion-footer>
+  <ion-segment>
+  <!-- tutaj binding danych -->
+  <ion-row  class="row responsive-lg">
+    <ion-col>
+      <ion-row class="row responsive-lg"> 
+        <div class="ion-text-center">
+          <h3>GALERIA</h3>
+          <ion-row>
+            ULICA 00, <br>
+            80-000 MIASTO<br>
+            <br>
+            GODZINY OTWARCIA<br>
+            WT-PT 12:00-19:00<br>
+            SOB 12:00-15:00
+          </ion-row>
+        </div>
+      </ion-row>
+    </ion-col>
+    <ion-col>
+      <ion-row class="row responsive-lg">
+        <div class="ion-text-center">
+          <h3>KONTAKT</h3>
+          <ion-row>
+            JAN KOWALSKI <br>
+            JANKOWALSKI@GALERIA.COM.PL<br>
+            <br>
+            ANNA NOWAK<br>
+            BIURO@GALERIA.COM.PL<br>
+          </ion-row>
+        </div>
+    </ion-row>
+    </ion-col>
+    <ion-col>
+      <ion-row class="row responsive-lg">
+        <div class="ion-text-center">
+          <h3>MEDIA</h3>
+          <ion-row>
+            BIURO@GALERIA.COM.PL <br>
+            <br>
+            DLA PRASY<br>
+            <BR>
+            REGULAMIN<br>
+          </ion-row>
+        </div>
+    </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-segment>
+</ion-footer>
 </ion-content>

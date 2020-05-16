@@ -22,11 +22,7 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
-  },  {
-    path: 'faq',
-    loadChildren: () => import('./faq/faq.module').then( m => m.FaqPageModule)
   },
-
   
   
 ];
