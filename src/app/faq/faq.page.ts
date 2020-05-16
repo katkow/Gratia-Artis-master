@@ -17,7 +17,11 @@ export class FaqPage implements OnInit {
     "W jaki sposób Gratia Artis zabezpiecza płatności kartą?",
     "Sprzedaż krok po kroku",
     "Kto płaci za wysyłkę?",
+<<<<<<< HEAD
     "W jakim terminie należy wysłać przedmior?",
+=======
+    "W jakim terminie należy wysłać przedmiot?",
+>>>>>>> master
     "Jak wysłać przedmiot?"
   ];
   answers: Array<string> = [
@@ -42,6 +46,7 @@ export class FaqPage implements OnInit {
     this.menu.open('cart');
   }
 
+<<<<<<< HEAD
   async answerQuestion(id: string) {
     const alert = await this.alertController.create({
       header: id,
@@ -51,6 +56,16 @@ export class FaqPage implements OnInit {
           value: 'zdecydowanie nie',
           checked: false
         }],
+=======
+
+  async answerQuestion(id: string, m: string) {
+    for(let answer of this.answers){
+      m = answer;
+    }
+    const alert = await this.alertController.create({
+      header: id,
+      message: m, 
+>>>>>>> master
         buttons: [
              {
             text: 'OK',
@@ -59,8 +74,15 @@ export class FaqPage implements OnInit {
             }
           }],
           cssClass: 'alert'
+<<<<<<< HEAD
     });
 
     await alert.present();
+=======
+        });  
+        
+    await alert.present();
+    
+>>>>>>> master
   }
 }

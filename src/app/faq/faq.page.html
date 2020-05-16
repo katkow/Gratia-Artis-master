@@ -28,6 +28,7 @@
         <ion-img  class="ion-text-center" style="width: 70px;" src="../../assets/LOGO.png" href='/home'></ion-img>
       </ion-segment>
       <ion-segment><br></ion-segment>
+<<<<<<< HEAD
       <ion-button href='/tabs/feed' expand="full" fill="clear" >
         PRACE
       </ion-button>
@@ -50,13 +51,41 @@
         KONTAKT
       </ion-button>
       <ion-button href='/faq' expand="full" fill="clear" >
+=======
+      <ion-button class="tk-hobo-std" href='/tabs/feed' expand="full" fill="clear" >
+        PRACE
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/new' expand="full" fill="clear" >
+        NAJNOWSZE
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/bestsellers' expand="full" fill="clear" >
+        BESTSELLERS
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/paintings' expand="full" fill="clear" >
+        OBRAZY
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/posters' expand="full" fill="clear" >
+        PLAKATY
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/artists' expand="full" fill="clear" >
+        TWÓRCY
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/contact' expand="full" fill="clear" >
+        KONTAKT
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/faq' expand="full" fill="clear" >
+>>>>>>> master
         FAQ
       </ion-button>
     </ion-content>
   </ion-menu>
 
   <ion-menu side="end" menuId="cart" contentId="main">
+<<<<<<< HEAD
     <ion-content color="pink">
+=======
+    <ion-content color="pink" class="tk-hobo-std">
+>>>>>>> master
       <ion-segment><br></ion-segment>
       <ion-segment><br></ion-segment>
       <ion-segment>
@@ -69,6 +98,7 @@
   <ion-router-outlet id="main"></ion-router-outlet>
 
   <ion-content color="pink">
+<<<<<<< HEAD
     <ion-grid>
                <ion-row *ngFor="let question of questions; index as i">
               <ion-col size="12">
@@ -79,5 +109,17 @@
                 </ion-item>        
               </ion-col>
           </ion-row>
+=======
+    <ion-grid *ngFor="let question of questions; index as i">
+          <ion-row>
+              <ion-col size="12">
+                <ion-item button (click)="answerQuestion(question, m)" detail="false" class="ion-no-margin" style="width: 100%;">
+                  <ion-label class="ion-text-wrap">
+                    {{ (i+1) + "." + question }}
+                  </ion-label>
+                </ion-item>
+              </ion-col>
+        </ion-row>
+>>>>>>> master
     </ion-grid>
   </ion-content>

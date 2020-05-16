@@ -57,6 +57,9 @@ a {
     background-color: transparent;
     color: var(--ion-color-pink-contrast, #000000);
   }
+.textarea-wrapper {
+  font-family: 'DM Mono', monospace;
+}
 
 ion-item{
     --background: #E8C9B7;
@@ -66,11 +69,22 @@ ion-item{
 .tabs-inner{
   --background: #E8C9B7;
 }
+
 ion-content {
   text-align: center;
 }
 
-.alert.mono {
+.alert-title {
   font-family: 'DM Mono', monospace;
 }
 
+.alert-message {
+  font-family: 'DM Mono', monospace;
+}
+
+.alert-input {
+  font-family: 'DM Mono', monospace;
+}
+.alert-button-inner {
+  color: black;
+}
