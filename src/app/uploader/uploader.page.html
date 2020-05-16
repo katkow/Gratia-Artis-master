@@ -1,13 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Wstaw zdjecie</ion-title>
+    <ion-title>Wstaw zdjęcie</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <div class="camera"></div>
-<ion-segment color="pink">
-  <input type="file" (change)="fileChanged($event)" />
-</ion-segment>
-  <img *ngIf="imageURL" src="https://ucarecdn.com/{{ imageURL }}/" />
+  <!-- <div class="camera">sadfghjkl</div> -->
+  <!-- <ion-card> -->
+    <ion-content padding>
+
+      <div class="center">
+      <div class="camera"></div>
+
+      <input type="file" *ngIf="!imageURL" (change)="fileChanged($event)" class="filebtn" #fileButton />
+
+      <ion-button shape="round" color="primary" (click)="uploadFile()" *ngIf="!imageURL" fill="outline">Dodaj pracę</ion-button>
+
+      <ion-card *ngIf="imageURL">
+        <img src="https://ucarecdn.com/{{ imageURL }}/" />
+        <ion-card-content>
+          <ion-textarea placeholder="Wprowadź opis" [(ngModel)]="desc"></ion-textarea>
+          <ion-button shape="round" color="primary" (click)="createPost()">OPUBLIKUJ</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+     
+  <!-- <ion-card-content>
+      <ion-button color="medium" size="large" (click)="cropUpload()">
+      <ion-icon slot="icon-only" name="camera"></ion-icon>
+      </ion-button>
+    </ion-card-content>
+</ion-card> -->
+  <!-- <ion-button  type="file" fill="clear" (change)="fileChanged($event)"> 
+    <ion-icon slot="icon-only" name="cloud-upload-sharp"></ion-icon>
+  </ion-button>
+  <img *ngIf="imageURL" src="https://ucarecdn.com/{{ imageURL }}/" /> -->
 </ion-content>
