@@ -28,35 +28,35 @@
         <ion-img  class="ion-text-center" style="width: 70px;" src="../../assets/LOGO.png" href='/home'></ion-img>
       </ion-segment>
       <ion-segment><br></ion-segment>
-      <ion-button class="tk-hobo-std" href='/tabs/feed' expand="full" fill="clear" >
+      <ion-button href='/tabs/feed' expand="full" fill="clear" >
         PRACE
       </ion-button>
-      <ion-button class="tk-hobo-std" (click)="openNew()" expand="full" fill="clear" >
+      <ion-button (click)="openNew()" expand="full" fill="clear" >
         NAJNOWSZE
       </ion-button>
-      <ion-button class="tk-hobo-std" (click)="openBestsellers()" expand="full" fill="clear" >
+      <ion-button (click)="openBestsellers()" expand="full" fill="clear" >
         BESTSELLERS
       </ion-button>
-      <ion-button class="tk-hobo-std" (click)="openPaintings()" expand="full" fill="clear" >
+      <ion-button (click)="openPaintings()" expand="full" fill="clear" >
         OBRAZY
       </ion-button>
-      <ion-button class="tk-hobo-std" (click)="openPosters()" expand="full" fill="clear" >
+      <ion-button (click)="openPosters()" expand="full" fill="clear" >
         PLAKATY
       </ion-button>
-      <ion-button class="tk-hobo-std" (click)="openPeople()" expand="full" fill="clear" >
+      <ion-button (click)="openPeople()" expand="full" fill="clear" >
         TWÓRCY
       </ion-button>
-      <ion-button class="tk-hobo-std" (click)="openContact()" expand="full" fill="clear" >
+      <ion-button (click)="openContact()" expand="full" fill="clear" >
         KONTAKT
       </ion-button>
-      <ion-button class="tk-hobo-std" href='/faq' expand="full" fill="clear" >
+      <ion-button href='/faq' expand="full" fill="clear" >
         FAQ
       </ion-button>
     </ion-content>
   </ion-menu>
 
   <ion-menu side="end" menuId="cart" contentId="main">
-    <ion-content color="pink" class="tk-hobo-std">
+    <ion-content color="pink">
       <ion-segment><br></ion-segment>
       <ion-segment><br></ion-segment>
       <ion-segment>
@@ -67,35 +67,17 @@
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
-<ion-content color="pink" padding class="ion-align-items-center">
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <ion-grid>
-    <ion-row color="pink">
-      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-        <div text-center>
-         <h3>Logowanie</h3> 
-        </div>
-        <div padding>
-        <ion-item>
-          <ion-label position="floating" >Login:</ion-label>
-          <ion-input type="text" [(ngModel)]="username" required></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Hasło:</ion-label>
-          <ion-input type="password" [(ngModel)]="password" required></ion-input>
-        </ion-item>
-      </div>
-      <div padding>
-        <ion-button  fill="solid" color="dark"  expand="full" (click)="login()">Zaloguj</ion-button>
-        <ion-text >Nie masz jeszcze konta? </ion-text>
-        <a href="/registration" class="arial">Zarejestruj się</a>
-      </div>
-      </ion-col>
-    </ion-row>
-</ion-grid>
-</ion-content>
 
+  <ion-content color="pink">
+    <ion-grid>
+               <ion-row *ngFor="let question of questions; index as i">
+              <ion-col size="12">
+                <ion-item button (click)="answerQuestion(question)" detail="false" class="ion-no-margin" style="width: 100%;">
+                  <ion-label class="ion-text-wrap">
+                    {{ (i+1) + "." + question }}
+                  </ion-label>
+                </ion-item>        
+              </ion-col>
+          </ion-row>
+    </ion-grid>
+  </ion-content>
