@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app'
-import { AlertController } from '@ionic/angular'
-import { Router } from '@angular/router'
+import { auth } from 'firebase/app';
+import { AlertController, MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.page.html',
@@ -17,7 +18,8 @@ export class RegistrationPage implements OnInit {
   constructor(
     public afAuth: AngularFireAuth,
     public alert: AlertController,
-    public router: Router
+    public router: Router,
+    public menu: MenuController
     ) { }
 
   ngOnInit() {
@@ -48,6 +50,9 @@ export class RegistrationPage implements OnInit {
     })
 
     await alert.present()
+  }
+  openCart() {
+    this.menu.open('cart');
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app'
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginPage implements OnInit {
   username: string = ""
   password: string = ""
 
-  constructor(public afAuth: AngularFireAuth) { }
+  constructor(public afAuth: AngularFireAuth, public menu: MenuController) { }
 
   ngOnInit() {
   }
@@ -29,7 +30,10 @@ export class LoginPage implements OnInit {
         console.log("Użytkownik nie istnieje")
       }
     }
-    
-  }
 
+  
+  }
+  openCart() {
+    this.menu.open('cart');
+  }
 }

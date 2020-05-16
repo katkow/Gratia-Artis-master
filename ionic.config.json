@@ -1,5 +1,7 @@
 {
-  "name": "Gratia-Artis-master",
-  "integrations": {},
+  "name": "projekt",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

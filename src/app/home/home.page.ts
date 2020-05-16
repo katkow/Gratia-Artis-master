@@ -10,11 +10,21 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private menu: MenuController) {}
+  public isSearchbarOpened = false;
+  constructor(public menu: MenuController) {}
 
   openMenu() {
     this.menu.enable(true, 'menu');
     this.menu.open('custom');
+  }
+  
+  openCart() {
+    this.menu.open('cart');
+  }
+
+  onSearch(event) {
+    console.log(event.target.value);
+
   }
 
 }
