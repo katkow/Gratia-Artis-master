@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core'
 import { AngularFireAuth } from '@angular/fire/auth'
+<<<<<<< Updated upstream
+=======
+import { first } from 'rxjs/operators'
+>>>>>>> Stashed changes
 
 interface user {
     username: string,
@@ -9,14 +13,42 @@ interface user {
 export class UserService {
     private user: user
 
+<<<<<<< Updated upstream
     constructor(){
+=======
+    constructor(private afAuth: AngularFireAuth){
+>>>>>>> Stashed changes
 
     }
     setUser(user: user) {
         this.user = user
     }
 
+<<<<<<< Updated upstream
     getUID() {
         return this.user.uid
+=======
+    getUsername(): string {
+        return this.user.username
+    }
+
+    async isAuthenticated() {
+        if(this.user) return true
+
+        const user = await this.afAuth.authState.pipe(first()).toPromise()
+
+        if(user) {
+            this.setUser({
+                username: user.email.split('@')[0],
+                uid: user.uid
+            })
+            return true
+        }
+        return false
+    }
+
+    getUID(): string {
+        return this.user.uid   
+>>>>>>> Stashed changes
     }
 } 
