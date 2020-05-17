@@ -24,6 +24,7 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import '~animate.css/animate.min.css';
 
 @import url("https://p.typekit.net/p.css?s=1&k=cit6gqv&ht=tk&f=16368.43886&a=34338562&app=typekit&e=css");
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap');
@@ -87,4 +88,9 @@ ion-content {
 }
 .alert-button-inner {
   color: black;
+}
+.cart-modal {
+  --height: 50%;
+  --border-radius: 10px;
+  padding: 25px;
 }

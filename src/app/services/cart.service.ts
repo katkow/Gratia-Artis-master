@@ -1,39 +1,30 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
- 
+export interface Product {
+  id: number,
+  author: string;
+  desc: string;
+  price: number
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  // data: Product[] = [
-  //   { id: 0, author: 'Pizza Salami', desc: 8.99, likes: 0 },
-  //   { id: 1, author: 'Pizza Classic', desc: 5.49, likes: 0 },
-  //   { id: 2, author: 'Sliced Bread', desc: 4.99, likes: 0 },
-  //   { id: 3, author: 'Salad', desc: 6.99, likes: 0 }
-  // ];
+  data: Product[] = [
+    { id: 0, author: 'tester', desc: 'kolaż', price: 599 },
+    { id: 1, author: 'test', desc: 'plakat', price: 650 },
+  ];
 
-  private productsCollection = this.afs.collection<any>('Products');
  
   private cart = [];
   private cartItemCount = new BehaviorSubject(0);
  
-  constructor(private afs: AngularFirestore) {
-    
-  }
+  constructor() {  }
  
   getProducts() {
-    //return this.productsCollection.snapshotChanges().pipe(
-    //   map(actions => {
-    //     return actions.map(a => {
-    //       const data = a.payload.doc.data();
-
-    //       return { ...data };
-    //     });
-    //   })
-    // );
-    return this.productsCollection;
+    return this.data;
 
   }
  

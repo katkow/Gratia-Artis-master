@@ -11,7 +11,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class FeedPage {
   cart = [];
-  products = [];
+  products = []; 
   cartItemCount: BehaviorSubject<number>;
  
   @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
