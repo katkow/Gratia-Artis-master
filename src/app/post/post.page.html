@@ -5,6 +5,9 @@
 </ion-header>
 
 <ion-content padding>
+
+  <app-loading *ngIf="!post"></app-loading>
+
   <ion-card *ngIf="post | async as postData">
 
     <ion-img src="https://ucarecdn.com/{{ postID }}/"></ion-img>
