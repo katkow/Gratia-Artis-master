@@ -8,13 +8,6 @@
       <ion-button *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
         <ion-icon slot="icon-only" name="search"></ion-icon>
       </ion-button>
-       <ion-button href='/login' >
-        <ion-icon slot="icon-only" name="person-sharp"></ion-icon>
-      </ion-button>
-      <ion-button (click)="openCart()">
-        <ion-icon slot="icon-only" name="cart-sharp">
-        </ion-icon>
-      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -52,18 +45,6 @@
       <ion-button class="tk-hobo-std" href='/faq' expand="full" fill="clear" >
         FAQ
       </ion-button>
-    </ion-content>
-  </ion-menu>
-
-  <ion-menu side="end" menuId="cart" contentId="main">
-    <ion-content color="pink" class="tk-hobo-std">
-      <ion-segment><br></ion-segment>
-      <ion-segment><br></ion-segment>
-      <ion-segment>
-        <ion-img style="width: 70px;" src="../../assets/LOGO.png" href='/home'></ion-img>
-      </ion-segment>
-      <ion-segment><br></ion-segment>
-      Koszyk jest pusty 
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>

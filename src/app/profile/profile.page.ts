@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore'
 import { UserService } from './../services/user.service';
-<<<<<<< Updated upstream
-=======
 import { Router } from '@angular/router';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-profile',

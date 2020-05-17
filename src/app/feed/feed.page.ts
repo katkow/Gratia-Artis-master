@@ -1,28 +1,29 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CartService } from './../services/cart.service';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CartModalPage } from '../pages/cart-modal/cart-modal.page';
 import { BehaviorSubject } from 'rxjs';
-
+ 
 @Component({
   selector: 'app-feed',
-  templateUrl: './feed.page.html',
-  styleUrls: ['./feed.page.scss'],
+  templateUrl: 'feed.page.html',
+  styleUrls: ['feed.page.scss']
 })
-export class FeedPage implements OnInit {
+export class FeedPage {
   cart = [];
   products = [];
   cartItemCount: BehaviorSubject<number>;
  
   @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
-
-  constructor(private cartService: CartService, private modalCtrl: ModalController) { }
-
+ 
+  constructor(private cartService: CartService, private modalCtrl: ModalController) {}
+ 
   ngOnInit() {
     this.products = this.cartService.getProducts();
     this.cart = this.cartService.getCart();
     this.cartItemCount = this.cartService.getCartItemCount();
   }
+ 
   addToCart(product) {
     this.cartService.addProduct(product);
     this.animateCSS('tada');
@@ -41,6 +42,7 @@ export class FeedPage implements OnInit {
     });
     modal.present();
   }
+ 
   animateCSS(animationName, keepAnimated = false) {
     const node = this.fab.nativeElement;
     node.classList.add('animated', animationName)
@@ -54,5 +56,4 @@ export class FeedPage implements OnInit {
     }
     node.addEventListener('animationend', handleAnimationEnd)
   }
-
 }

@@ -1,4 +1,4 @@
-<ion-content fullscreen>
+<ion-content color="pink">
  
   <div class="ion-text-end">
     <ion-button (click)="close()" fill="clear" color="dark">
@@ -6,10 +6,9 @@
     </ion-button>
   </div>
  
-  <div class="ion-padding">
- 
-    <ion-list>
-      <ion-item *ngFor="let p of cart" class="ion-text-wrap">
+
+
+      <ion-item class="ion-text-wrap"  *ngFor="let p of products">
         <ion-grid>
           <ion-row class="ion-align-items-center">
             <ion-col size="2" class="ion-align-self-center">
@@ -19,7 +18,7 @@
             </ion-col>
  
             <ion-col size="1" class="ion-align-self-center">
-              {{ p.amount }}
+              {{  p.amount }}
             </ion-col>
  
             <ion-col size="2" class="ion-align-self-center">
@@ -39,7 +38,7 @@
               <b>{{ p.name }}</b>
             </ion-col>
             <ion-col size="3" class="ion-text-end">
-              {{ p.amount * p.price | currency:'PLN' }}
+              {{ p.amount * p.price  }}
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -48,19 +47,19 @@
         <ion-grid>
           <ion-row>
             <ion-col size="9">
-              Razem:
+              Suma:
             </ion-col>
             <ion-col size="3" class="ion-text-end">
-              {{ getTotal() | currency:'PLN' }}
+              {{ getTotal() }}
             </ion-col>
           </ion-row>
         </ion-grid>
       </ion-item>
-    </ion-list>
+
  
-    <ion-button expand="full" (click)="checkout()">
-      Checkout
+    <ion-button fill="solid" color="dark" expand="full" (click)="checkout()">
+      KUP
     </ion-button>
-  </div>
+
  
 </ion-content>

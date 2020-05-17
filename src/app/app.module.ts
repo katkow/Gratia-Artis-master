@@ -33,12 +33,8 @@ import { AuthService } from './services/auth.service';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     EmailComposer,
-<<<<<<< Updated upstream
-    UserService
-=======
     UserService,
     AuthService
->>>>>>> Stashed changes
   ],
   bootstrap: [AppComponent]
 })
