@@ -5,6 +5,43 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-menu side="start" menuId="menu" contentId="main">
+    <ion-content color="pink">
+      <ion-segment><br></ion-segment>
+      <ion-segment><br></ion-segment>
+      <ion-segment>
+        <ion-img  class="ion-text-center" style="width: 70px;" src="../../assets/LOGO.png" href='/home'></ion-img>
+      </ion-segment>
+      <ion-segment><br></ion-segment>
+      <ion-button class="tk-hobo-std" href='/tabs/feed' expand="full" fill="clear" >
+        PRACE
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/new' expand="full" fill="clear" >
+        NAJNOWSZE
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/bestsellers' expand="full" fill="clear" >
+        BESTSELLERS
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/paintings' expand="full" fill="clear" >
+        OBRAZY
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/posters' expand="full" fill="clear" >
+        PLAKATY
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/artists' expand="full" fill="clear" >
+        TWÓRCY
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/contact' expand="full" fill="clear" >
+        KONTAKT
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/faq' expand="full" fill="clear" >
+        FAQ
+      </ion-button>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+
+  
 
 <app-loading *ngIf="!posts"></app-loading>
 
@@ -15,8 +52,8 @@
         <ion-img src="https://ucarecdn.com/{{ profilePic }}/-/scale_crop/200x200/center/"></ion-img>
       </ion-col>
       <ion-col size="8">
-        <p>{{ username }}</p>
-        <ion-button shape="round" color="primary" routerLink="/tabs/edit-profile">Edytuj profil</ion-button>
+        <h3>{{ username }}</h3>
+        <ion-button shape="round" color="dark" class="mono" routerLink="/tabs/edit-profile">Edytuj profil</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

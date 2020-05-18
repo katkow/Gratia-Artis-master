@@ -5,15 +5,8 @@
     </ion-buttons>  
     <ion-searchbar mode="ios" cancel-button-icon="arrow-back-sharp" *ngIf="isSearchbarOpened" showCancelButton="true" (search)="onSearch($event)" (ionCancel)="isSearchbarOpened=false"></ion-searchbar>
     <ion-buttons slot="end">
-      <ion-button *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
-        <ion-icon slot="icon-only" name="search"></ion-icon>
-      </ion-button>
        <ion-button href='/login' >
         <ion-icon slot="icon-only" name="person-sharp"></ion-icon>
-      </ion-button>
-      <ion-button (click)="openCart()">
-        <ion-icon slot="icon-only" name="cart-sharp">
-        </ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

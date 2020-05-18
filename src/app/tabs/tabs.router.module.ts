@@ -43,21 +43,5 @@ const routes: Routes = [
   }
 
 
-  wersja niedzialajaca: 
-
-  const routes: Routes = [
-
-    {
-        path: '',
-        component: TabsPage,
-        children: [
-            { path: 'feed', loadChildren: './feed/feed.module#FeedPageModule'},
-            { path: 'uploader', loadChildren: './uploader/uploader.module#UploaderPageModule'},
-            { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule'}
-        ]
-    }
-
-
-
 ];
 */

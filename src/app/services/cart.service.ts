@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { AngularFirestore } from '@angular/fire/firestore';
+
 export interface Product {
   id: number,
   author: string;
@@ -35,6 +35,11 @@ export class CartService {
   getCartItemCount() {
     return this.cartItemCount;
   }
+  
+  getTotal() {
+    return this.cart.reduce((i, j) => i + j.price * j.amount, 0);
+  }
+ 
  
   addProduct(product) {
     let added = false;

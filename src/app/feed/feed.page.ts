@@ -56,4 +56,5 @@ export class FeedPage {
     }
     node.addEventListener('animationend', handleAnimationEnd)
   }
+  
 }

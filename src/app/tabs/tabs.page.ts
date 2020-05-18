@@ -13,7 +13,8 @@ export class TabsPage implements OnInit {
 
   ngOnInit() {
   }
-
-  
-
+  onSearch(event) {
+    const query = event.target.value.toLowerCase();
+    console.log(query);
+  }
 }
