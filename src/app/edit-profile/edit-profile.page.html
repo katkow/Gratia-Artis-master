@@ -13,7 +13,7 @@
     <input type="file" #fileBtn class="filebtn" (change)="uploadPic($event)"/>
 
     <div>
-      <ion-img (click)="updateProfilePic()" src="https://ucarecdn.com/{{ profilePic }}/-/scale_crop/150x150/center/"></ion-img>
+      <ion-img class="profile-pic" (click)="updateProfilePic()" src="https://ucarecdn.com/{{ profilePic }}/-/scale_crop/150x150/center/"></ion-img>
 
     </div>
 
@@ -35,7 +35,7 @@
 
       <ion-button fill="solid" expand="block" color="dark" (click)="updateDetails()">Zapisz</ion-button>
     </div>
-    
+
   </div>
 
 
