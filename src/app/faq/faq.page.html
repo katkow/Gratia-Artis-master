@@ -72,7 +72,7 @@
     <ion-grid *ngFor="let question of questions; index as i">
           <ion-row>
               <ion-col size="12">
-                <ion-item button (click)="answerQuestion(question, m)" detail="false" class="ion-no-margin" style="width: 100%;">
+                <ion-item button (click)="answerQuestion(question, i)" detail="false" class="ion-no-margin" style="width: 100%;">
                   <ion-label class="ion-text-wrap">
                     {{ (i+1) + "." + question }}
                   </ion-label>

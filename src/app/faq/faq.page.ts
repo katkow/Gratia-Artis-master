@@ -43,13 +43,10 @@ export class FaqPage implements OnInit {
   }
 
 
-  async answerQuestion(id: string, m: string) {
-    for(let answer of this.answers){
-      m = answer;
-    }
+  async answerQuestion(id: string, i: number) {
     const alert = await this.alertController.create({
       header: id,
-      message: m, 
+      message: this.answers[i], 
         buttons: [
              {
             text: 'OK',
