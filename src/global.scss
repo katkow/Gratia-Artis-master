@@ -24,7 +24,8 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-@import '~animate.css/animate.min.css';
+
+@import '~animate.css/animate.compat.css';
 
 @import url("https://p.typekit.net/p.css?s=1&k=cit6gqv&ht=tk&f=16368.43886&a=34338562&app=typekit&e=css");
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap');
@@ -34,7 +35,6 @@ font-family:"hobo-std";
 src:url("https://use.typekit.net/af/10fd15/0000000000000000000131c3/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/10fd15/0000000000000000000131c3/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/10fd15/0000000000000000000131c3/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
 font-display:auto;font-style:normal;font-weight:400;
 }
-
 
 @font-face {
 font-family:"flegrei";
@@ -48,8 +48,6 @@ font-display:auto;font-style:normal;font-weight:400;
     font-family: hobo-std;
 }
 .arial {font-family: 'Arial', sans-serif;}
-
-
 .button {
       --color: black;
       
@@ -61,20 +59,16 @@ a {
 .textarea-wrapper {
   font-family: 'DM Mono', monospace;
 }
-
 ion-item{
     --background: #E8C9B7;
     --color: black;
 }
-
 .tabs-inner{
   --background: #E8C9B7;
 }
-
 ion-content {
   text-align: center;
 }
-
 .alert-title {
   font-family: 'DM Mono', monospace;
 }

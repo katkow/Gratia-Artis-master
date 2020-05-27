@@ -3,7 +3,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CartModalPage } from '../pages/cart-modal/cart-modal.page';
 import { BehaviorSubject } from 'rxjs';
- 
+
 @Component({
   selector: 'app-feed',
   templateUrl: 'feed.page.html',
@@ -12,7 +12,7 @@ import { BehaviorSubject } from 'rxjs';
 export class FeedPage {
   cart = [];
   products = []; 
-  cartItemCount: BehaviorSubject<number>;
+  cartItemCount: BehaviorSubject<number>; 
  
   @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
  
@@ -42,12 +42,12 @@ export class FeedPage {
     });
     modal.present();
   }
- 
+     
+  //https://github.com/daneden/animate.css
   animateCSS(animationName, keepAnimated = false) {
     const node = this.fab.nativeElement;
     node.classList.add('animated', animationName)
-    
-    //https://github.com/daneden/animate.css
+
     function handleAnimationEnd() {
       if (!keepAnimated) {
         node.classList.remove('animated', animationName);

@@ -11,6 +11,7 @@ export interface Product {
 @Injectable({
   providedIn: 'root'
 })
+
 export class CartService {
   data: Product[] = [
     { id: 0, author: 'tester', desc: 'kolaż', price: 599 },
@@ -21,7 +22,7 @@ export class CartService {
 
  
   private cart = [];
-  private cartItemCount = new BehaviorSubject(0);
+  private cartItemCount = new BehaviorSubject(0); //updates the number in this particular place
  
   constructor() {  }
  
