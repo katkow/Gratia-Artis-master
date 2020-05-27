@@ -3,7 +3,27 @@
     <ion-title>post</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<ion-menu side="start" menuId="menu" contentId="main">
+  <ion-content color="pink">
+    <ion-segment><br></ion-segment>
+    <ion-segment><br></ion-segment>
+    <ion-segment>
+      <ion-img  class="ion-text-center" style="width: 70px;" src="../../assets/LOGO.png" href='/home'></ion-img>
+    </ion-segment>
+    <ion-segment><br></ion-segment>
+    <ion-button class="tk-hobo-std" href='/tabs/feed' expand="full" fill="clear" >
+      PRACE
+    </ion-button>
+    <ion-button class="tk-hobo-std" href='/contact' expand="full" fill="clear" >
+      KONTAKT
+    </ion-button>
+    <ion-button class="tk-hobo-std" href='/faq' expand="full" fill="clear" >
+      FAQ
+    </ion-button>
+    <ion-back-button defaultHref="/"></ion-back-button> 
+  </ion-content>
+</ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
 <ion-content padding>
 
   <app-loading *ngIf="!post"></app-loading>

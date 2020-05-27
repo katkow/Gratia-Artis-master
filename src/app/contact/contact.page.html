@@ -1,9 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="pink">
     <ion-buttons slot="start">
-      <ion-menu-button autoHide="true"></ion-menu-button>    
+      <ion-menu-button autoHide="true"></ion-menu-button>   
     </ion-buttons>  
-    <ion-searchbar mode="ios" cancel-button-icon="arrow-back-sharp" *ngIf="isSearchbarOpened" showCancelButton="true" (search)="onSearch($event)" (ionCancel)="isSearchbarOpened=false"></ion-searchbar>
     <ion-buttons slot="end">
        <ion-button href='/login' >
         <ion-icon slot="icon-only" name="person-sharp"></ion-icon>
@@ -24,27 +23,13 @@
       <ion-button class="tk-hobo-std" href='/tabs/feed' expand="full" fill="clear" >
         PRACE
       </ion-button>
-      <ion-button class="tk-hobo-std" href='/new' expand="full" fill="clear" >
-        NAJNOWSZE
-      </ion-button>
-      <ion-button class="tk-hobo-std" href='/bestsellers' expand="full" fill="clear" >
-        BESTSELLERS
-      </ion-button>
-      <ion-button class="tk-hobo-std" href='/paintings' expand="full" fill="clear" >
-        OBRAZY
-      </ion-button>
-      <ion-button class="tk-hobo-std" href='/posters' expand="full" fill="clear" >
-        PLAKATY
-      </ion-button>
-      <ion-button class="tk-hobo-std" href='/artists' expand="full" fill="clear" >
-        TWÓRCY
-      </ion-button>
       <ion-button class="tk-hobo-std" href='/contact' expand="full" fill="clear" >
         KONTAKT
       </ion-button>
       <ion-button class="tk-hobo-std" href='/faq' expand="full" fill="clear" >
         FAQ
       </ion-button>
+      <ion-back-button defaultHref="/"></ion-back-button> 
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
