@@ -2,7 +2,14 @@ import { CartService } from './../services/cart.service';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CartModalPage } from '../pages/cart-modal/cart-modal.page';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+ 
+export interface MyData {
+  name: string;
+  filepath: string;
+  size: number;
+}
 
 @Component({
   selector: 'app-feed',
@@ -11,15 +18,18 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class FeedPage {
   cart = [];
-  products = []; 
+  images: Observable<MyData[]>;
   cartItemCount: BehaviorSubject<number>; 
  
   @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
- 
-  constructor(private cartService: CartService, private modalCtrl: ModalController) {}
+  private imageCollection: AngularFirestoreCollection<MyData>;
+  constructor(private cartService: CartService, private modalCtrl: ModalController, private database: AngularFirestore) {
+    this.imageCollection = database.collection<MyData>('posts');
+    this.images = this.imageCollection.valueChanges();
+  }
  
   ngOnInit() {
-    this.products = this.cartService.getProducts();
+    //this.images = this.cartService.getProducts();
     this.cart = this.cartService.getCart();
     this.cartItemCount = this.cartService.getCartItemCount();
   }

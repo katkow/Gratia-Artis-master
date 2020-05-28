@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { UserService } from '../services/user.service';
-import { firestore } from 'firebase/app'
+import { firestore } from 'firebase/app';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -22,7 +23,8 @@ export class PostPage implements OnInit {
   constructor(
     private route: ActivatedRoute, 
     private afs: AngularFirestore,
-    private user: UserService) { 
+    private user: UserService,
+    private router: Router) { 
     
   }
 
@@ -52,6 +54,11 @@ export class PostPage implements OnInit {
         likes: firestore.FieldValue.arrayRemove(this.user.getUID())
       })
     }
+  }
+
+  removePost() {
+    this.postReference.delete();
+    this.router.navigate(['/tabs/profile'])
   } 
 
 }

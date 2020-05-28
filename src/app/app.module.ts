@@ -16,6 +16,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './services/auth.service';
 import { CartModalPageModule } from './pages/cart-modal/cart-modal.module';
 import { ShareModule } from './share.module';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ShareModule } from './share.module';
     HttpModule,
     AngularFirestoreModule,
     CartModalPageModule,
-    ShareModule
+    ShareModule,
+    AngularFireStorageModule
   ],
   providers: [
     StatusBar,

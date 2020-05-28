@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 
-export interface Product {
-  id: number,
-  author: string;
-  desc: string;
-  price: number
+export interface MyData {
+  name: string;
+  filepath: string;
+  size: number;
+  author: string; 
+  likes: number;
 }
 
 @Injectable({
@@ -13,12 +15,8 @@ export interface Product {
 })
 
 export class CartService {
-  data: Product[] = [
-    { id: 0, author: 'tester', desc: 'kolaż', price: 599 },
-    { id: 1, author: 'test', desc: 'plakat', price: 650 },
-    { id: 2, author: 'tester', desc: 'obraz', price: 599 },
-    { id: 3, author: 'test', desc: 'rysunek', price: 650 },
-  ];
+  
+  images: Observable<MyData[]>;
 
  
   private cart = [];
@@ -27,7 +25,7 @@ export class CartService {
   constructor() {  }
  
   getProducts() {
-    return this.data;
+    return this.images;
 
   }
  

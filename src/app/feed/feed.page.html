@@ -36,7 +36,33 @@
     </ion-fab-button>
   </ion-fab>
   <ion-grid>
-    <ion-card *ngFor="let p of products">
+    <h2 class="ion-text-center, mono">Opublikowane prace</h2>
+    
+    <ion-card color="light" class="ion-text-center" *ngFor="let item of images | async">
+      <ion-card-header>
+        <ion-card-title class="mono">{{ item.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <img [src]="item.filepath" />
+        <ion-row class="ion-align-items-center">
+          <ion-col size="8">
+            <ion-label color="pink" >
+              <ion-text class="mono">{{ item.author  }}   </ion-text>
+            </ion-label>
+            <br>
+            <ion-label color="pink" >
+              <ion-text class="mono">{{ item.size | currency:'EUR' : symbol  }}</ion-text>
+            </ion-label>
+          </ion-col>
+          <ion-col size="4" class="ion-text-right">
+            <ion-button fill="clear" (click)="addToCart(p)">
+              <ion-icon name="add"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    <!-- <ion-card *ngFor="let p of products">
       <ion-card-header>
         <ion-card-title class="mono">{{ p.desc }}</ion-card-title>
       </ion-card-header>
@@ -58,6 +84,6 @@
           </ion-col>
         </ion-row>
       </ion-card-content>
-    </ion-card>
+    </ion-card> -->
   </ion-grid>
 </ion-content>
