@@ -41,7 +41,7 @@
           <ion-card-title class="mono">Wybierz pracę</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <ion-button (click)="createPost()" shape="round" color="dark" class="mono" fill="outline">
+          <ion-button shape="round" color="dark" class="mono" fill="outline">
             <input id="uploadBtn" type="file" class="upload" (change)="uploadFile($event.target.files)" />
           </ion-button>
         </ion-card-content>
@@ -49,7 +49,7 @@
     
       <ion-card class="ion-text-center" *ngIf="isUploading && !isUploaded">
         <ion-card-header>
-          <ion-card-title class="mono" >Wybrany plik:<b>{{ fileName }}</b></ion-card-title>
+          <ion-card-title class="mono" >Wybrany plik:{{ fileName }}</ion-card-title>
         </ion-card-header>
     
         <ion-card-content>
@@ -58,19 +58,22 @@
             <ion-progress-bar value="{{ pct / 100 }}"></ion-progress-bar>
           </div>
           <div *ngIf="snapshot | async as snap">
-            <div *ngIf="snapshot && snap.bytesTransferred != snap.totalBytes">
+            <div *ngIf="snapshot">
               <ion-button size="small" (click)="task.pause()" shape="round" color="warning" class="mono" fill="outline">Zatrzymaj</ion-button>
               <ion-button size="small" (click)="task.resume()" shape="round" color="dark" class="mono" fill="outline">Wznów</ion-button>
               <ion-button size="small" (click)="task.cancel()" shape="round" color="danger" class="mono" fill="outline">Anuluj</ion-button>
             </div>
           </div>
+          <ion-textarea placeholder="Wprowadź opis" [(ngModel)]="desc"></ion-textarea>
+          <ion-textarea placeholder="Wprowadź cenę" [(ngModel)]="price"></ion-textarea>
+          <ion-button shape="round" color="dark" class="mono" fill="outline" (click)="createPost()">OPUBLIKUJ</ion-button>
         </ion-card-content>
       </ion-card>
       
       <ion-card class="ion-text-center" *ngIf="!isUploading && isUploaded">
         <ion-card-header>
           <ion-card-title class="mono">
-            <b>{{ fileName }}</b> Opublikowano!
+            {{ desc }} Opublikowano!
           </ion-card-title>
         </ion-card-header>
     

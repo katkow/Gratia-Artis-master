@@ -12,7 +12,7 @@ import { finalize, tap } from 'rxjs/operators';
 export interface MyData {
   name: string;
   filepath: string;
-  size: number;
+  price: number;
 }
 
 @Component({
@@ -35,15 +35,17 @@ export class UploaderPage implements OnInit {
    //File details  
    fileName:string;
    fileSize:number;
+   price: number;
+   desc: string;
    //Status check 
    isUploading:boolean;
    isUploaded:boolean;
 
-  imageURL: string
-  desc: string
-  busy: boolean = false
+  // imageURL: string
 
-  @ViewChild('fileButton') fileButton
+  // busy: boolean = false
+
+  // @ViewChild('fileButton') fileButton
 
   private imageCollection: AngularFirestoreCollection<MyData>;
   constructor(
@@ -64,64 +66,64 @@ export class UploaderPage implements OnInit {
   ngOnInit() {
   }
 
-  async createPost() {
-    this.busy = true
+  // async createPost() {
+  //   this.busy = true
 
-    const image = this.imageURL
-    const desc = this.desc
+  //   const image = this.imageURL
+  //   const desc = this.desc
 
-    this.afstore.doc(`users/${this.user.getUID()}`).update({
-      posts: firestore.FieldValue.arrayUnion(image)
-    })
+  //   this.afstore.doc(`users/${this.user.getUID()}`).update({
+  //     posts: firestore.FieldValue.arrayUnion(image)
+  //   })
     
-    this.afstore.doc(`posts/${image}`).set({
-      desc,
-      author: this.user.getUsername(),
-      likes: [] //maybe optional, favs view?
-    })
+  //   this.afstore.doc(`posts/${image}`).set({
+  //     desc,
+  //     author: this.user.getUsername(),
+  //     likes: [] //maybe optional, favs view?
+  //   })
 
-    this.busy = false
-    this.imageURL = ""
-    this.desc = ""
+  //   this.busy = false
+  //   this.imageURL = ""
+  //   this.desc = ""
 
-    const alert = await this.alertController.create({
-      header: 'Zakończono',
-      message: 'Twoja praca została opublikowana',
-      buttons: ['OK']
-    })
-    await alert.present()
-    this.router.navigate(['/tabs/feed'])
+  //   const alert = await this.alertController.create({
+  //     header: 'Zakończono',
+  //     message: 'Twoja praca została opublikowana',
+  //     buttons: ['OK']
+  //   })
+  //   await alert.present()
+  //   this.router.navigate(['/tabs/feed'])
 
-  };
+  // };
 
   // uploadFile() {
   //   this.fileButton.nativeElement.click()
   // }
 
-  fileChanged(event) {
-    this.busy = true
+  // fileChanged(event) {
+  //   this.busy = true
 
-    const files = event.target.files
-    //console.log(files)
+  //   const files = event.target.files
+  //   //console.log(files)
 
-    const data = new FormData()
-    data.append('file',files[0])
-    data.append('UPLOADCARE_STORE', '1')
-    data.append('UPLOADCARE_PUB_KEY', '54bbbd963b93329e40e8')
+  //   const data = new FormData()
+  //   data.append('file',files[0])
+  //   data.append('UPLOADCARE_STORE', '1')
+  //   data.append('UPLOADCARE_PUB_KEY', '54bbbd963b93329e40e8')
 
-    this.http.post('https://upload.uploadcare.com/base/', data).subscribe(event => {
-      console.log(event)
-      this.imageURL = event.json().file
-      this.busy = false
-    })
-  }
+  //   this.http.post('https://upload.uploadcare.com/base/', data).subscribe(event => {
+  //     console.log(event)
+  //     this.imageURL = event.json().file
+  //     this.busy = false
+  //   })
+  // }
 
   uploadFile(event: FileList) {
     // The File object
     const file = event.item(0)
     // walidacja dla obrazów
     if (file.type.split('/')[0] !== 'image') { 
-     console.error('unsupported file type :( ')
+     console.error('Zły format pliku')
      return;
     }
     
@@ -129,16 +131,10 @@ export class UploaderPage implements OnInit {
     this.isUploaded = false;
 
     this.fileName = file.name;
-
     // The storage path
     const path = `${new Date().getTime()}_${file.name}`;
-
-    // Totally optional metadata
-    //const customMetadata = { app: 'Freaky Image Upload Demo' };
-
     //File reference
     const fileRef = this.storage.ref(path);
-
     // The main task
     this.task = this.storage.upload(path, file);
     //, { customMetadata }
@@ -152,9 +148,9 @@ export class UploaderPage implements OnInit {
         
         this.UploadedFileURL.subscribe(resp=>{
           this.addImagetoDB({
-            name: file.name,
+            name: this.desc,
             filepath: resp,
-            size: this.fileSize
+            price: this.price
           });
           this.isUploading = false;
           this.isUploaded = true;
@@ -168,7 +164,7 @@ export class UploaderPage implements OnInit {
     )
   }
 
-  addImagetoDB(image: MyData) {
+  addImagetoDB(image: MyData) { 
     //Create an ID for document
     const id = this.database.createId();
 
