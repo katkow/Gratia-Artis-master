@@ -33,7 +33,7 @@ export class UploaderPage implements OnInit {
    //Uploaded Image List
    images: Observable<MyData[]>;
    //File details  
-   fileName:string;
+  // fileName:string;
    fileSize:number;
    price: number;
    desc: string;
@@ -42,9 +42,7 @@ export class UploaderPage implements OnInit {
    isUploaded:boolean;
 
   // imageURL: string
-
   // busy: boolean = false
-
   // @ViewChild('fileButton') fileButton
 
   private imageCollection: AngularFirestoreCollection<MyData>;
@@ -129,23 +127,20 @@ export class UploaderPage implements OnInit {
     
     this.isUploading = true;
     this.isUploaded = false;
-
-    this.fileName = file.name;
+   // this.fileName = file.name;
     // The storage path
     const path = `${new Date().getTime()}_${file.name}`;
     //File reference
     const fileRef = this.storage.ref(path);
     // The main task
     this.task = this.storage.upload(path, file);
-    //, { customMetadata }
     // Get file progress percentage
     this.percentage = this.task.percentageChanges();
+
     this.snapshot = this.task.snapshotChanges().pipe(
-      
       finalize(() => {
         // Get uploaded file storage path
         this.UploadedFileURL = fileRef.getDownloadURL();
-        
         this.UploadedFileURL.subscribe(resp=>{
           this.addImagetoDB({
             name: this.desc,
@@ -167,7 +162,6 @@ export class UploaderPage implements OnInit {
   addImagetoDB(image: MyData) { 
     //Create an ID for document
     const id = this.database.createId();
-
     //Set document id with value in database
     this.imageCollection.doc(id).set(image).then(resp => {
       console.log(resp);
