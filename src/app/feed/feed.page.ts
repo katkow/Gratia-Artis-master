@@ -34,8 +34,8 @@ export class FeedPage {
     this.cartItemCount = this.cartService.getCartItemCount();
   }
  
-  addToCart(product) {
-    this.cartService.addProduct(product);
+  addToCart(item) {
+    this.cartService.addProduct(item);
     this.animateCSS('tada');
   }
  

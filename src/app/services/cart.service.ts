@@ -17,11 +17,9 @@ export interface MyData {
 export class CartService {
   
   images: Observable<MyData[]>;
-
- 
   private cart = [];
   private cartItemCount = new BehaviorSubject(0); //updates the number in this particular place
-  amount = 0;
+
   constructor() {  }
  
   getProducts() {
@@ -46,13 +44,13 @@ export class CartService {
     let added = false;
     for (let p of this.cart) {
       if (p.id === product.id) {
-        this.amount += 1;
+        p.amount += 1;
         added = true;
         break;
       }
     }
     if (!added) {
-      this.amount = 1;
+      product.amount = 1;
       this.cart.push(product);
     }
     this.cartItemCount.next(this.cartItemCount.value + 1);
@@ -61,8 +59,8 @@ export class CartService {
   decreaseProduct(product) {
     for (let [index, p] of this.cart.entries()) {
       if (p.id === product.id) {
-        this.amount -= 1;
-        if (this.amount == 0) {
+        p.amount -= 1;
+        if (p.amount == 0) {
           this.cart.splice(index, 1);
         }
       }
@@ -73,7 +71,7 @@ export class CartService {
   removeProduct(product) {
     for (let [index, p] of this.cart.entries()) {
       if (p.id === product.id) {
-        this.cartItemCount.next(this.cartItemCount.value - this.amount);
+        this.cartItemCount.next(this.cartItemCount.value - p.amount);
         this.cart.splice(index, 1);
       }
     }
