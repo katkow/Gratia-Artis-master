@@ -12,7 +12,8 @@ import { finalize, tap } from 'rxjs/operators';
 export interface MyData {
   name: string;
   filepath: string;
-  price: number;
+  //price: number;
+  author: string;
 }
 
 @Component({
@@ -33,22 +34,23 @@ export class UploaderPage implements OnInit {
    //Uploaded Image List
    images: Observable<MyData[]>;
    //File details  
-  // fileName:string;
+   fileName:string;
    fileSize:number;
    price: number;
    desc: string;
+   author: string;
    //Status check 
    isUploading:boolean;
    isUploaded:boolean;
 
   // imageURL: string
   // busy: boolean = false
-  // @ViewChild('fileButton') fileButton
+  @ViewChild('fileButton') fileButton
 
   private imageCollection: AngularFirestoreCollection<MyData>;
   constructor(
-    public http: Http,
-    public afstore: AngularFirestore,
+    //public http: Http,
+    //public afstore: AngularFirestore,
     public user: UserService,
     private alertController: AlertController,
     private router: Router,
@@ -58,6 +60,7 @@ export class UploaderPage implements OnInit {
     this.isUploaded = false;
     //Set collection where our documents/ images info will save
     this.imageCollection = database.collection<MyData>('posts');
+    //this.imageCollection = database.collection<MyData>('users');
     this.images = this.imageCollection.valueChanges();
      }
 
@@ -127,7 +130,7 @@ export class UploaderPage implements OnInit {
     
     this.isUploading = true;
     this.isUploaded = false;
-   // this.fileName = file.name;
+    this.fileName = file.name;
     // The storage path
     const path = `${new Date().getTime()}_${file.name}`;
     //File reference
@@ -143,18 +146,16 @@ export class UploaderPage implements OnInit {
         this.UploadedFileURL = fileRef.getDownloadURL();
         this.UploadedFileURL.subscribe(resp=>{
           this.addImagetoDB({
-            name: this.desc,
+            name: this.fileName,
             filepath: resp,
-            price: this.price
+            //price: this.price,
+            author: this.user.getUsername(),
           });
           this.isUploading = false;
           this.isUploaded = true;
         },error=>{
           console.error(error);
         })
-      }),
-      tap(snap => {
-          this.fileSize = snap.totalBytes;
       })
     )
   }
@@ -168,6 +169,10 @@ export class UploaderPage implements OnInit {
     }).catch(error => {
       console.log("error " + error);
     });
+    // this.imageCollection.doc(`users/${this.user.getUID()}`).update({
+    //   posts: firestore.FieldValue.arrayUnion(image)
+    // })
+    
   }
 
 }
