@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding color="pink">
   <ion-menu side="start" menuId="menu" contentId="main">
     <ion-content color="pink">
       <ion-segment><br></ion-segment>
@@ -45,11 +45,13 @@
   </ion-grid>
 </div>
 
-  <div id="images" *ngIf="posts">
+  <div *ngIf="posts">
     <div class="image" *ngFor="let post of posts">
-      
-        <ion-img (click)="goTo(post)" class="main-image" src="https://ucarecdn.com/{{ post }}/-/scale_crop/200x200/center/"></ion-img>
-      
+      <ion-card class="ion-text-center">
+        <ion-card-content>
+        <ion-img (click)="goTo(post)" class="main-image"  [src]="post.filepath"></ion-img>
+        </ion-card-content>
+      </ion-card>
     </div>
   </div>
 </ion-content>

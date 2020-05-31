@@ -12,8 +12,8 @@ import { finalize, tap } from 'rxjs/operators';
 export interface MyData {
   name: string;
   filepath: string;
-  //price: number;
-  author: string;
+  price: number;
+  username: string;
 }
 
 @Component({
@@ -38,19 +38,21 @@ export class UploaderPage implements OnInit {
    fileSize:number;
    price: number;
    desc: string;
-   author: string;
+   username: string;
    //Status check 
    isUploading:boolean;
    isUploaded:boolean;
 
+   isEmpty:boolean;
+
   // imageURL: string
-  // busy: boolean = false
+  busy: boolean = false
   @ViewChild('fileButton') fileButton
 
   private imageCollection: AngularFirestoreCollection<MyData>;
   constructor(
     //public http: Http,
-    //public afstore: AngularFirestore,
+    public afstore: AngularFirestore,
     public user: UserService,
     private alertController: AlertController,
     private router: Router,
@@ -58,6 +60,7 @@ export class UploaderPage implements OnInit {
     private database: AngularFirestore) {
     this.isUploading = false;
     this.isUploaded = false;
+    this.isEmpty = true;
     //Set collection where our documents/ images info will save
     this.imageCollection = database.collection<MyData>('posts');
     //this.imageCollection = database.collection<MyData>('users');
@@ -67,35 +70,37 @@ export class UploaderPage implements OnInit {
   ngOnInit() {
   }
 
-  // async createPost() {
-  //   this.busy = true
+  async addImagetoDB(image: MyData) {
+    this.busy = true
 
-  //   const image = this.imageURL
-  //   const desc = this.desc
+    //const image = this.UploadedFileURL
+    const desc = this.desc
 
-  //   this.afstore.doc(`users/${this.user.getUID()}`).update({
-  //     posts: firestore.FieldValue.arrayUnion(image)
-  //   })
+    this.afstore.doc(`users/${this.user.getUID()}`).update({
+      posts: firestore.FieldValue.arrayUnion(image)
+    })
     
-  //   this.afstore.doc(`posts/${image}`).set({
-  //     desc,
-  //     author: this.user.getUsername(),
-  //     likes: [] //maybe optional, favs view?
-  //   })
+    this.afstore.doc(`posts/${image}`).set({
+      desc,
+      username: this.user.getUsername(),
+      likes: [] //maybe optional, favs view?
+    })
 
-  //   this.busy = false
-  //   this.imageURL = ""
-  //   this.desc = ""
+    this.busy = false
+    this.desc = ""
+    const id = this.database.createId();
+    this.imageCollection.doc(id).set(image).then(resp => {
+      console.log(resp);
+    })
+    // const alert = await this.alertController.create({
+    //   header: 'Zakończono',
+    //   message: 'Twoja praca została opublikowana',
+    //   buttons: ['OK']
+    // })
+    // await alert.present()
+    // this.router.navigate(['/tabs/feed'])
 
-  //   const alert = await this.alertController.create({
-  //     header: 'Zakończono',
-  //     message: 'Twoja praca została opublikowana',
-  //     buttons: ['OK']
-  //   })
-  //   await alert.present()
-  //   this.router.navigate(['/tabs/feed'])
-
-  // };
+  };
 
   // uploadFile() {
   //   this.fileButton.nativeElement.click()
@@ -120,6 +125,7 @@ export class UploaderPage implements OnInit {
   // }
 
   uploadFile(event: FileList) {
+    //this.fileButton.nativeElement.click()
     // The File object
     const file = event.item(0)
     // walidacja dla obrazów
@@ -146,11 +152,12 @@ export class UploaderPage implements OnInit {
         this.UploadedFileURL = fileRef.getDownloadURL();
         this.UploadedFileURL.subscribe(resp=>{
           this.addImagetoDB({
-            name: this.fileName,
+            name: this.desc,
             filepath: resp,
-            //price: this.price,
-            author: this.user.getUsername(),
+            price: this.price,
+            username: this.user.getUsername(),
           });
+
           this.isUploading = false;
           this.isUploaded = true;
         },error=>{
@@ -160,19 +167,20 @@ export class UploaderPage implements OnInit {
     )
   }
 
-  addImagetoDB(image: MyData) { 
-    //Create an ID for document
-    const id = this.database.createId();
-    //Set document id with value in database
-    this.imageCollection.doc(id).set(image).then(resp => {
-      console.log(resp);
-    }).catch(error => {
-      console.log("error " + error);
-    });
-    // this.imageCollection.doc(`users/${this.user.getUID()}`).update({
-    //   posts: firestore.FieldValue.arrayUnion(image)
-    // })
+  // addImagetoDB(image: MyData) { 
+  //   //Create an ID for document
+  //   const id = this.database.createId();
+  //   //Set document id with value in database
+  //   this.imageCollection.doc(id).set(image).then(resp => {
+  //     console.log(resp);
+  //   }).catch(error => {
+  //     console.log("error " + error);
+  //   });
+  //   // this.imageCollection.doc(`users/${this.user.getUID()}`).update({
+  //   //   posts: firestore.FieldValue.arrayUnion(image)
+  //   // })
     
-  }
+  // }
+
 
 }

@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-    <ion-content padding>
+    <ion-content padding color="pink">
       <ion-menu side="start" menuId="menu" contentId="main">
         <ion-content color="pink">
           <ion-segment><br></ion-segment>
@@ -36,13 +36,15 @@
 
       <ion-button shape="round" color="dark" class="mono" (click)="uploadFile()" *ngIf="!imageURL" fill="outline">Dodaj pracę</ion-button> -->
 
-      <ion-card class="ion-text-center" *ngIf="!isUploading && !isUploaded">
+      <ion-card class="card" *ngIf="!isUploading && !isUploaded">
         <ion-card-header>
+          <ion-textarea placeholder="Wprowadź opis" [(ngModel)]="desc" required></ion-textarea>
+          <ion-textarea placeholder="Wprowadź cenę" [(ngModel)]="price" required></ion-textarea>
           <ion-card-title class="mono">Wybierz pracę</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <ion-button shape="round" color="dark" class="mono" fill="outline">
-            <input id="uploadBtn" type="file" class="upload" (change)="uploadFile($event.target.files)" />
+            <input type="file" class="upload" (change)="uploadFile($event.target.files)" />
           </ion-button>
         </ion-card-content>
       </ion-card>
@@ -64,9 +66,7 @@
               <ion-button size="small" (click)="task.cancel()" shape="round" color="danger" class="mono" fill="outline">Anuluj</ion-button>
             </div>
           </div>
-          <!-- <ion-textarea placeholder="Wprowadź opis" [(ngModel)]="desc"></ion-textarea>
-          <ion-textarea placeholder="Wprowadź cenę" [(ngModel)]="price"></ion-textarea>
-          <ion-button shape="round" color="dark" class="mono" fill="outline">OPUBLIKUJ</ion-button> -->
+          <!-- <ion-button shape="round" color="dark" class="mono" fill="outline">OPUBLIKUJ</ion-button> -->
         </ion-card-content>
       </ion-card>
       
@@ -80,20 +80,20 @@
         <ion-card-content>
           <div *ngIf="UploadedFileURL | async as url">
             <img [src]="url" />
-          </div>
+          </div>       
           <ion-button expand="full" shape="round" color="dark" class="mono" fill="outline" (click)="isUploading = isUploaded = false">Wstaw kolejną pracę</ion-button>
         </ion-card-content>
       </ion-card>
     
 
       <!-- <ion-card *ngIf="imageURL">
-        <img src="https://ucarecdn.com/{{ imageURL }}/" />
+        <img src="url" />
         <ion-card-content>
           <ion-textarea placeholder="Wprowadź opis" [(ngModel)]="desc"></ion-textarea>
+          <ion-textarea placeholder="Wprowadź cenę" [(ngModel)]="price"></ion-textarea>
           <ion-button shape="round" color="dark" class="mono" fill="outline" (click)="createPost()">OPUBLIKUJ</ion-button>
         </ion-card-content>
       </ion-card> -->
-    <!-- </div> -->
 
 
 </ion-content>

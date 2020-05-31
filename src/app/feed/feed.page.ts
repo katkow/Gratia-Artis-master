@@ -8,7 +8,9 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 export interface MyData {
   name: string;
   filepath: string;
-  size: number;
+  price: number;
+  likes: number;
+  
 }
 
 @Component({
