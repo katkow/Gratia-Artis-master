@@ -24,6 +24,7 @@ export class FeedPage {
   cartItemCount: BehaviorSubject<number>; 
  
   @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
+
   private imageCollection: AngularFirestoreCollection<MyData>;
   constructor(private cartService: CartService, private modalCtrl: ModalController, private database: AngularFirestore) {
     this.imageCollection = database.collection<MyData>('posts');

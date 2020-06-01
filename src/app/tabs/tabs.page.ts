@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { filter } from 'rxjs/operators';
+
 
 
 @Component({
@@ -12,9 +14,10 @@ export class TabsPage implements OnInit {
 
   ngOnInit() {
   }
+  
   onSearch(event) {
     const query = event.target.value.toLowerCase();
-    console.log(query);
+    query.filter(event);
   }
 
 }

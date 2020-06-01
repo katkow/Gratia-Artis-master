@@ -17,6 +17,7 @@ import { AuthService } from './services/auth.service';
 import { CartModalPageModule } from './pages/cart-modal/cart-modal.module';
 import { ShareModule } from './share.module';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     AngularFirestoreModule,
     CartModalPageModule,
     ShareModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     StatusBar,
