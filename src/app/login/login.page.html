@@ -34,7 +34,7 @@
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
-<ion-content color="pink" padding class="ion-align-items-center">
+<ion-content #login color="pink" padding class="ion-align-items-center">
   <br>
   <br>
   <br>
@@ -57,7 +57,7 @@
         </ion-item>
       </div>
       <div padding>
-        <ion-button  fill="solid" color="dark"  expand="full" (click)="login()">Zaloguj</ion-button>
+        <ion-button #btnSubmit fill="solid" color="dark"  expand="full" (click)="login()">Zaloguj</ion-button>
         <ion-text >Nie masz jeszcze konta? </ion-text>
         <a href="/registration" class="arial">Zarejestruj się</a>
       </div>

@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { LoginPage } from './login.page';
 
 describe('LoginPage', () => {
@@ -18,7 +17,12 @@ describe('LoginPage', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
 });
+
+describe('Login', () => {
+
+})
+
