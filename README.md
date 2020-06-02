@@ -66,7 +66,9 @@ Podgląd aplikacji powienien otworzyć się w przeglądarce. Aby uruchomić proj
 Oprogramowanie zamknięte
  
  ## Kontakt 
+ 
  [katkow]()
+ 
  [jcieszynska]()
  
     
