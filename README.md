@@ -64,7 +64,7 @@ Następnie należy przenieść pliki znajdujące się w repozytorium projektu do
  
  ## Testy 
  Testy end-to-end są zapisane w pliku e2e. Przeprowadzone są za pomocą selenium. 
- Aby uruchomić testy należy wpisać komendę `ng run e2e` w command prompt Node.js
+ Aby uruchomić testy należy wpisać komendę `ng e2e` w command prompt Node.js
  
  ## Licencja 
 Oprogramowanie zamknięte, objęte restrykcjami dotyczącymi używania, kopiowania lub modyfikacji. Repozytorium kodu jest prywatne.
