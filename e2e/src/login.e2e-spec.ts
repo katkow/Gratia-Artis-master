@@ -76,12 +76,12 @@ describe('Login', () => {
     //   tasks.waitUntilVisible();
     });
 
-    it('navigates to the tabs page if the login succeeds', () => {
-      login.enterLogin();
-      login.enterPassword();
-      login.clickSignIn().click();
-      feed.waitUntilVisible();
-    });
+    // it('navigates to the tabs page if the login succeeds', () => {
+    //   login.enterLogin();
+    //   login.enterPassword();
+    //   login.clickSignIn().click();
+    //   feed.waitUntilVisible();
+    // });
 
 //     it('allows navigation to the feed page', () => {
 //     //   menu.clickCustomers();

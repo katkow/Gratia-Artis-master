@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+  <ion-header [translucent]="true">
   <ion-toolbar color="pink">
     <ion-buttons slot="start">
       <ion-menu-button autoHide="true"></ion-menu-button>    
@@ -24,6 +24,21 @@
       <ion-button class="tk-hobo-std" href='/tabs/feed' expand="full" fill="clear" >
         PRACE
       </ion-button>
+      <ion-button class="tk-hobo-std" href='/new' expand="full" fill="clear" >
+        NAJNOWSZE
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/bestsellers' expand="full" fill="clear" >
+        BESTSELLERS
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/paintings' expand="full" fill="clear" >
+        OBRAZY
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/posters' expand="full" fill="clear" >
+        PLAKATY
+      </ion-button>
+      <ion-button class="tk-hobo-std" href='/artists' expand="full" fill="clear" >
+        TWÓRCY
+      </ion-button>
       <ion-button class="tk-hobo-std" href='/contact' expand="full" fill="clear" >
         KONTAKT
       </ion-button>
@@ -33,8 +48,20 @@
       <ion-back-button defaultHref="/"></ion-back-button> 
     </ion-content>
   </ion-menu>
+
+  <ion-menu side="end" menuId="cart" contentId="main">
+    <ion-content color="pink" class="tk-hobo-std">
+      <ion-segment><br></ion-segment>
+      <ion-segment><br></ion-segment>
+      <ion-segment>
+        <ion-img style="width: 70px;" src="../../assets/LOGO.png" href='/home'></ion-img>
+      </ion-segment>
+      <ion-segment><br></ion-segment>
+      Koszyk jest pusty 
+    </ion-content>
+  </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
-<ion-content #login color="pink" padding class="ion-align-items-center">
+<ion-content color="pink" padding class="ion-align-items-center">
   <br>
   <br>
   <br>
@@ -57,7 +84,7 @@
         </ion-item>
       </div>
       <div padding>
-        <ion-button #btnSubmit fill="solid" color="dark"  expand="full" (click)="login()">Zaloguj</ion-button>
+        <ion-button  fill="solid" color="dark"  expand="full" (click)="login()">Zaloguj</ion-button>
         <ion-text >Nie masz jeszcze konta? </ion-text>
         <a href="/registration" class="arial">Zarejestruj się</a>
       </div>
@@ -65,4 +92,3 @@
     </ion-row>
 </ion-grid>
 </ion-content>
-

@@ -38,8 +38,6 @@ export class LoginPage implements OnInit {
         console.log("Użytkownik nie istnieje")
       }
     }
-
-  
   }
 
   openCart() {
