@@ -67,9 +67,9 @@ Oprogramowanie zamknięte
  
  ## Kontakt 
  
- [katkow]()
+ [Katarzyna Kowalska](https://github.com/katkow)
  
- [jcieszynska]()
+ [Joanna Cieszyńska](https://github.com/jcieszynska)
  
     
      
