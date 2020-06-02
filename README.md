@@ -63,8 +63,66 @@ Następnie należy przenieść pliki znajdujące się w repozytorium projektu do
  * Node.js command prompt podpowie Ci gdzie zapisał się plik z rozszerzeniem .apk - otwórz ten plik na swoim telefonie lub w Android Studio 
  
 ## Testy 
- Testy end-to-end są zapisane w pliku e2e. Przeprowadzone są za pomocą selenium. 
- Aby uruchomić testy należy wpisać komendę `ng e2e` w command prompt Node.js
+### End-to-end
+Testy end-to-end są zapisane w pliku e2e. Przeprowadzone są za pomocą [Protractor](https://www.protractortest.org/#/).To kompleksowa platforma testowa dla aplikacji Angular i AngularJS. Uruchamia testy aplikacji działającej w prawdziwej przeglądarce, wchodząc z nią w interakcję z użytkownikiem. 
+
+Poniżej przykład testu e2e. Scenariusz: niezalogowany użytkownik może wpisać tekst w polu "Temat" w wiadomości na stronie Kontakt. 
+ ```
+  describe('before logged in', () => {
+     it('writes the message in the contact form', async () => {
+        contact.navigateTo();
+        await contact.typeInTheSubcjet();
+        expect(contact.getItemText()).toEqual('Temat');
+    });
+ }
+ ``` 
+ W osobnym pliku contact.po.ts znajduje się kod podany poniżej. Dzięki niemu możemy się odwoływać do funckji tam zaimplementowanych.
+ ```
+ import { browser, by, element } from 'protractor';
+
+export class ContactPage {
+  navigateTo() {
+    return browser.get('/contact');
+  }
+
+  getItemText() {
+    return element(by.css('ion-item ion-label')).getText();
+  }
+
+  async typeInTheSubcjet() {
+    await element(by.css('ion-input[placeholder="Podaj temat wiadomości"] input')).sendKeys("wiadomość"); 
+  }
+  
+}
+```
+Aby uruchomić testy należy wpisać komendę `ng e2e` w command prompt Node.js
+### Mock
+Testowanie makiet odbyło się za pomocą [Jasmine](https://jasmine.github.io/). Jasmine tworzy obiekty (które nazywa "szpiegami" ang."spy"), aby zastąpić zależności podczas testowania. Gdy używany jest obiekt próbny, test może kontrolować wartości zwracane przez wywołania tej zależności, dzięki czemu bieżący test jest niezależny od zmian wprowadzonych w zależności.
+Testy makietowe znajdują się w plikach nazwakomponentu.spec.ts, w osobnych folderach zawierających pliki .ts oraz .html danego komponentu.
+
+Aby uruchomić testy należy wpisać komendę `ng test`. 
+### Unit Tests
+Testowanie jednostkowe odbyło się za pomocą frameworka Jasmine. 
+Testy jednostkowe znajdują się w plikach nazwakomponentu.spec.ts, w osobnych folderach zawierających pliki .ts oraz .html danego komponentu.
+
+Aby uruchomić testy należy wpisać komendę `ng test`.
+
+Przykład testu jednostkowego:
+```
+describe('CartService', () => {
+  let service: CartService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(CartService);
+  });
+  
+  it('should add products', () => {
+    const product = { id: 1};
+    service.addProduct(product);
+    expect(service).toBeTruthy();
+  });
+```
  
 ## Licencja 
 Oprogramowanie zamknięte, objęte restrykcjami dotyczącymi używania, kopiowania lub modyfikacji. Repozytorium kodu jest prywatne.
