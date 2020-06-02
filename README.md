@@ -50,11 +50,15 @@ Opis istniejących funkcjonalności:
   * Możliwość zmiany zdjęcia profilowego, nazwy użytkownika oraz hasła
   
   ## Instalacja
-Aby uruchomić projekt potrzebny jest node.js 
- * Otwórz Node.js command prompt
- * Przejdź do folderu, w krórym znajduje się projekt 
- * Wpisz komendę `ionic serve`
-Podgląd aplikacji powienien otworzyć się w przeglądarce. Aby uruchomić projekt na telefonie z systemem Android bądź w emulatorze Android Studio:
+  Aby uruchomić aplikację niezbędne są node.js, utworzenie w wybranym folderze projektu ionic oraz instalacja bibliotek:
+
+*	ionic start <name> <template>
+*	npm install firebase @angular/fire
+*	npm install @angular/http@latest
+*	ionic cordova plugin add cordova-plugin-email-composer
+*	npm install @ionic-native/email-composer
+
+Następnie należy przenieść pliki znajdujące się w repozytorium projektu do utworzonego folderu, oraz wykonać polecenie ionic serve. Podgląd aplikacji powienien otworzyć się w przeglądarce. Aby uruchomić projekt na telefonie z systemem Android bądź w emulatorze Android Studio:
  * Wpisz komendę `ionic cordova android build`
  * Node.js command prompt podpowie Ci gdzie zapisał się plik z rozszerzeniem .apk - otwórz ten plik na swoim telefonie lub w Android Studio 
  
@@ -63,7 +67,7 @@ Podgląd aplikacji powienien otworzyć się w przeglądarce. Aby uruchomić proj
  Aby uruchomić testy należy wpisać komendę `ng run e2e` w command prompt Node.js
  
  ## Licencja 
-Oprogramowanie zamknięte
+Oprogramowanie zamknięte, objęte restrykcjami dotyczącymi używania, kopiowania lub modyfikacji. Repozytorium kodu jest prywatne.
  
  ## Kontakt 
  
