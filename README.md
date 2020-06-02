@@ -62,7 +62,12 @@ Podgląd aplikacji powienien otworzyć się w przeglądarce. Aby uruchomić proj
  Testy end-to-end są zapisane w pliku e2e. Przeprowadzone są za pomocą selenium. 
  Aby uruchomić testy należy wpisać komendę `ng run e2e` w command prompt Node.js
  
+ ## Licencja 
+Oprogramowanie zamknięte
  
-  
+ ## Kontakt 
+ [katkow]()
+ [jcieszynska]()
+ 
     
      
