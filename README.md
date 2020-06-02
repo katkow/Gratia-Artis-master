@@ -19,14 +19,14 @@ Gratia Artis to projekt stworzony w ramach zajęć na Uniwersytecie. Jest to apl
 Aby opublikować swój obraz lub kupić dzieło sztuki wystarczy zarejestrować się w serwisie.
 
 ## Technologie
-* Visual Studio Code (https://code.visualstudio.com/)
-* Adobe XD (https://www.adobe.com/pl/products/xd.html)
-* Ionic Framework (https://ionicframework.com/)
-* Firebase Database; Firebase Storage (https://firebase.google.com/)
-* Uploadcare (https://uploadcare.com/)
-* AngularFire (https://angular.io/)
-* @angular/http (https://angular.io/)
-* cordova-plugin-email-composer (https://ionicframework.com/)
+* Visual Studio Code(https://code.visualstudio.com/)
+* Adobe XD(https://www.adobe.com/pl/products/xd.html)
+* Ionic Framework(https://ionicframework.com/)
+* Firebase Database; Firebase Storage(https://firebase.google.com/)
+* Uploadcare(https://uploadcare.com/)
+* AngularFire(https://angular.io/)
+* @angular/http(https://angular.io/)
+* cordova-plugin-email-composer(https://ionicframework.com/)
 
 ## Wygląd
 Projekt powstał najpierw w Adobe XD, następnie został zaimplementowany w Ionic Framework.
