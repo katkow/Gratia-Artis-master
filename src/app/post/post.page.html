@@ -26,11 +26,11 @@
 <ion-router-outlet id="main"></ion-router-outlet>
 <ion-content padding>
 
-  <app-loading *ngIf="!post"></app-loading>
-
-  <ion-card *ngIf="post as postData">
-
-    <ion-img src="https://ucarecdn.com/{{ postID }}/"></ion-img>
+  <app-loading *ngIf="!UploadedFileURL"></app-loading>
+  <!-- *ngIf="post as postData" -->
+  <ion-card  *ngIf="UploadedFileURL | async as url">
+    <img [src]="url" />
+    <!-- <ion-img [src="https://ucarecdn.com/{{ postID }}/"]></ion-img> -->
     <ion-card-content>
       <p>{{ postData.desc }}</p>
     </ion-card-content>

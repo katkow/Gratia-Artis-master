@@ -127,13 +127,26 @@ export class UploaderPage implements OnInit {
   //   })
   // }
 
-  uploadFile(event: FileList) {
+  async uploadFile(event: FileList) {
     //this.fileButton.nativeElement.click()
     // The File object
     const file = event.item(0)
     // walidacja dla obrazów
     if (file.type.split('/')[0] !== 'image') { 
      console.error('Zły format pliku')
+     const alert = await this.alertController.create({
+      message: "Zły format pliku!", 
+        buttons: [
+             {
+            text: 'OK',
+            handler: () => {
+              console.log('Confirm Ok');
+            }
+          }],
+          cssClass: 'alert'
+        });  
+        
+    await alert.present();
      return;
     }
     
