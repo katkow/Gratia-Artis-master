@@ -76,7 +76,7 @@ Poniżej przykład testu e2e. Scenariusz: niezalogowany użytkownik może wpisa�
     });
  }
  ``` 
- W osobnym pliku contact.po.ts znajduje się kod podany poniżej. Dzięki niemu możemy się odwoływać do 
+ W osobnym pliku contact.po.ts znajduje się kod podany poniżej. Dzięki niemu możemy się odwoływać do funckji tam zaimplementowanych.
  ```
  import { browser, by, element } from 'protractor';
 
@@ -98,13 +98,31 @@ export class ContactPage {
 Aby uruchomić testy należy wpisać komendę `ng e2e` w command prompt Node.js
 ### Mock
 Testowanie makiet odbyło się za pomocą [Jasmine](https://jasmine.github.io/). Jasmine tworzy obiekty (które nazywa "szpiegami" ang."spy"), aby zastąpić zależności podczas testowania. Gdy używany jest obiekt próbny, test może kontrolować wartości zwracane przez wywołania tej zależności, dzięki czemu bieżący test jest niezależny od zmian wprowadzonych w zależności.
+Testy makietowe znajdują się w plikach nazwakomponentu.spec.ts, w osobnych folderach zawierających pliki .ts oraz .html danego komponentu.
 
 Aby uruchomić testy należy wpisać komendę `ng test`. 
 ### Unit Tests
-Testowanie jednostkowe odbyło się za pomocą frameworka Mocha. 
+Testowanie jednostkowe odbyło się za pomocą frameworka Jasmine. 
+Testy jednostkowe znajdują się w plikach nazwakomponentu.spec.ts, w osobnych folderach zawierających pliki .ts oraz .html danego komponentu.
 
 Aby uruchomić testy należy wpisać komendę `ng test`.
 
+Przykład testu jednostkowego:
+```
+describe('CartService', () => {
+  let service: CartService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(CartService);
+  });
+  
+  it('should add products', () => {
+    const product = { id: 1};
+    service.addProduct(product);
+    expect(service).toBeTruthy();
+  });
+```
  
 ## Licencja 
 Oprogramowanie zamknięte, objęte restrykcjami dotyczącymi używania, kopiowania lub modyfikacji. Repozytorium kodu jest prywatne.
