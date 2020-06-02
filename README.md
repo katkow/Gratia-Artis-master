@@ -49,7 +49,7 @@ Opis istniejących funkcjonalności:
   * Zakładka sklepu, możliwość dodania artykułu do koszyka i zakupienia go
   * Możliwość zmiany zdjęcia profilowego, nazwy użytkownika oraz hasła
   
-  ## Instalacja
+ ## Instalacja
   Aby uruchomić aplikację niezbędne są node.js, utworzenie w wybranym folderze projektu ionic oraz instalacja bibliotek:
 
 *	ionic start <name> <template>
@@ -62,14 +62,14 @@ Następnie należy przenieść pliki znajdujące się w repozytorium projektu do
  * Wpisz komendę `ionic cordova android build`
  * Node.js command prompt podpowie Ci gdzie zapisał się plik z rozszerzeniem .apk - otwórz ten plik na swoim telefonie lub w Android Studio 
  
- ## Testy 
+## Testy 
  Testy end-to-end są zapisane w pliku e2e. Przeprowadzone są za pomocą selenium. 
  Aby uruchomić testy należy wpisać komendę `ng e2e` w command prompt Node.js
  
- ## Licencja 
+## Licencja 
 Oprogramowanie zamknięte, objęte restrykcjami dotyczącymi używania, kopiowania lub modyfikacji. Repozytorium kodu jest prywatne.
  
- ## Kontakt 
+## Kontakt 
  
  [Katarzyna Kowalska](https://github.com/katkow)
  
