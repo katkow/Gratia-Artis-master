@@ -1,6 +1,7 @@
-import { MyData, CartService } from './../../services/cart.service';
+import {  CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalController, AlertController } from '@ionic/angular';
+import { MyData } from 'interface';
  
 @Component({
   selector: 'app-cart-modal',

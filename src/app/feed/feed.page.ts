@@ -4,14 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { CartModalPage } from '../pages/cart-modal/cart-modal.page';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
- 
-export interface MyData {
-  name: string;
-  filepath: string;
-  price: number;
-  likes: number;
-  
-}
+import { MyData } from 'interface';
 
 @Component({
   selector: 'app-feed',
@@ -21,6 +14,7 @@ export interface MyData {
 export class FeedPage {
   cart = [];
   images: Observable<MyData[]>;
+
   cartItemCount: BehaviorSubject<number>; 
  
   @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
@@ -32,7 +26,6 @@ export class FeedPage {
   }
  
   ngOnInit() {
-    //this.images = this.cartService.getProducts();
     this.cart = this.cartService.getCart();
     this.cartItemCount = this.cartService.getCartItemCount();
   }

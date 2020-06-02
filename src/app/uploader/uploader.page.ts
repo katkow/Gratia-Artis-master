@@ -11,6 +11,7 @@ import { finalize, tap } from 'rxjs/operators';
 
 export interface MyData {
   name: string;
+  amount: number;
   filepath: string;
   price: number;
   username: string;
@@ -34,6 +35,7 @@ export class UploaderPage implements OnInit {
    //Uploaded Image List
    images: Observable<MyData[]>;
    //File details  
+   amount: number;
    fileName:string;
    fileSize:number;
    price: number;
@@ -61,6 +63,7 @@ export class UploaderPage implements OnInit {
     this.isUploading = false;
     this.isUploaded = false;
     this.isEmpty = true;
+    this.amount = 0;
     //Set collection where our documents/ images info will save
     this.imageCollection = database.collection<MyData>('posts');
     //this.imageCollection = database.collection<MyData>('users');
@@ -152,6 +155,7 @@ export class UploaderPage implements OnInit {
         this.UploadedFileURL = fileRef.getDownloadURL();
         this.UploadedFileURL.subscribe(resp=>{
           this.addImagetoDB({
+            amount: this.amount,
             name: this.desc,
             filepath: resp,
             price: this.price,
