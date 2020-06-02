@@ -31,7 +31,7 @@ Aby opublikować swój obraz lub kupić dzieło sztuki wystarczy zarejestrować 
 ## Wygląd
 Projekt powstał najpierw w Adobe XD, następnie został zaimplementowany w Ionic Framework.
 
-<img src="/screenshots/homepage.PNG" width="200px" /> <img src="/screenshots/feed.PNG" width="200px" /> <img src="/screenshots/cart modal.PNG" width="200px" /> <img src="/screenshots/profile.PNG" width="200px" /> <img src="/screenshots/uploader.PNG" width="200px" /> 
+<img src="/screenshots/homepage.PNG" width="200px" /> <img src="/screenshots/feed.PNG" width="200px" /> <img src="/screenshots/cart modal.PNG" width="200px" /> <img src="/screenshots/profile.PNG" width="200px" /> 
 
 
 ## Funkcjonalności
