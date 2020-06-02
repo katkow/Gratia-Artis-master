@@ -7,12 +7,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "mocha -r ts-node/register tests/**/*.test.ts",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "test":"mocha -r ts-node/register tests/**/*.test.ts",
     "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test"
-    },
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "~9.1.6",
@@ -24,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~9.1.6",
     "@angular/router": "~9.1.6",
     "@capacitor/core": "2.1.0",
+    "@ionic-native-mocks/email-composer": "^2.0.12",
     "@ionic-native/core": "^5.0.7",
     "@ionic-native/email-composer": "^5.26.0",
     "@ionic-native/image-picker": "^5.25.0",
