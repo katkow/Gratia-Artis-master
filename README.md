@@ -56,10 +56,11 @@ Aby uruchomić projekt potrzebny jest node.js
  * Wpisz komendę `ionic serve`
 Podgląd aplikacji powienien otworzyć się w przeglądarce. Aby uruchomić projekt na telefonie z systemem Android bądź w emulatorze Android Studio:
  * Wpisz komendę `ionic cordova android build`
- * Node.js command prompt podpowie Ci, gdzie zapisał się plik z rozszerzeniem .apk - otwórz ten plik na swoim telefonie lub w Android Studio 
+ * Node.js command prompt podpowie Ci gdzie zapisał się plik z rozszerzeniem .apk - otwórz ten plik na swoim telefonie lub w Android Studio 
  
  ## Testy 
  Testy end-to-end są zapisane w pliku e2e. Przeprowadzone są za pomocą selenium. 
+ Aby uruchomić testy należy wpisać komendę `ng run e2e` w command prompt Node.js
  
  
   
