@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app'
-import { MenuController } from '@ionic/angular';
+import { MenuController, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { UserService } from './../services/user.service';
 @Component({
@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
   username: string = ""
   password: string = ""
 
-  constructor(public afAuth: AngularFireAuth, public menu: MenuController, public user: UserService, public router: Router) { }
+  constructor(private alertController: AlertController, public afAuth: AngularFireAuth, public menu: MenuController, public user: UserService, public router: Router) { }
 
   ngOnInit() {
   }
@@ -36,6 +36,19 @@ export class LoginPage implements OnInit {
       console.dir(err)
       if(err.code === "auth/user-not-found") {
         console.log("Użytkownik nie istnieje")
+        const alert = await this.alertController.create({
+          message: "Użytkownik nie istnieje", 
+            buttons: [
+                 {
+                text: 'OK',
+                handler: () => {
+                  console.log('Confirm Ok');
+                }
+              }],
+              cssClass: 'alert'
+            });  
+            
+        await alert.present();
       }
     }
   }
